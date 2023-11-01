@@ -1,0 +1,49 @@
+input.clear-input {
+  border-width: 0;
+  border-radius: 0;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  --color-shadow-primary: none;
+}
+
+input.clear-input:focus {
+  outline: none;
+}
+
+.window-app {
+  font-family: $font-primary;
+}
+
+.window-content {
+  input[type="number"] {
+    max-width: 30px;
+  }
+
+  input[type="text"] {
+    width: auto;
+  }
+}
+
+.rogue.sheet.actor {
+  min-width: 550px;
+  min-height: 500px;
+}
+
+.rollable {
+  &:hover,
+  &:focus {
+    color: #000;
+    cursor: pointer;
+  }
+}
+
+.tox {
+  min-height: 300px;
+}
+
+.editor {
+  min-height: 200px;
+}

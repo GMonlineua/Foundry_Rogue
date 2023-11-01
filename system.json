@@ -1,0 +1,43 @@
+{
+  "id": "rogue",
+  "title": "Rogue",
+  "description": "Rogue | Пройдисвіт",
+  "version": "0.1",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11",
+    "maximum": "11"
+  },
+  "authors": [
+    {
+      "name": "GMonline-ua",
+      "url": "https://github.com/GMonlineua",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "module/rogue.mjs"
+  ],
+  "styles": [
+    "css/rogue.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "uk",
+      "name": "Українська",
+      "path": "lang/uk.json",
+      "flags": {}
+    }
+  ],
+  "packs": [],
+  "initiative": "d6",
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health"
+}

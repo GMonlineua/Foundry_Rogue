@@ -1,0 +1,57 @@
+.resources {
+  margin-bottom: 5px;
+  align-items: baseline;
+
+  .resource {
+    flex: auto;
+    align-items: baseline;
+    *{
+      flex: auto;
+    }
+  }
+}
+
+.resource {
+  .resource-label {
+    font-weight: bold;
+  }
+  .resource-content{
+    display: inline;
+  }
+  input {
+    display: inline;
+  }
+}
+
+.resource-dot .resource-dot-step {
+    height: 14px;
+    width: 14px;
+    border: 1px solid #000;
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.resource-dot .resource-dot-step.active {
+    background-color: #790813;
+}
+
+.attributes {
+  .resource {
+    padding-top: 5px;
+    text-align: center;
+    font-size: medium;
+
+    .resource-label {
+      display: block;
+      margin: auto;
+      text-transform: uppercase;
+    }
+
+    span.plus {
+      position: relative;
+      top: 1px;
+      left: 12px;
+    }
+  }
+}

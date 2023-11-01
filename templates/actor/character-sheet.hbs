@@ -1,0 +1,79 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <div class="img-block">
+      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+      <div class=" hp-bar resource">
+        <progress id="system.hp.value" value="{{system.hp.value}}" max="{{system.hp.max}}" title="{{localize 'ROGUE.HP'}}"></progress>
+        <div class="hp-input">
+          <input class="clear-input" type="number" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input class="clear-input" type="number" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-fields">
+      <h1 class="charname"><input class="clear-input" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'ROGUE.ActorName'}}"/></h1>
+      <div class="resource level">
+        <label for="system.level" class="resource-label">{{localize 'ROGUE.Level'}}</label>
+        <input class="clear-input" type="number" name="system.level" value="{{system.level}}" data-dtype="Number"/>
+      </div>
+      <h3>{{localize 'ROGUE.Background'}}: <input class="clear-input" name="system.background" type="text" value="{{system.background}}" data-dtype="String"/></h3>
+      {{> "systems/rogue/templates/actor/parts/abilities.hbs"}}
+    </div>
+  </header>
+
+  <div class="after-header flexrow">
+    <div class="defense attributes">
+      <div class="resource">
+        <label for="system.defense" class="resource-label">{{localize 'ROGUE.Armor'}} <span>({{#ability system.defense}}{{/ability}})</span></label>
+        <span class="plus">+</span>
+        <input class="clear-input" type="number" name="system.defense" value="{{system.defense}}" data-dtype="Number"/>
+      </div>
+    </div>
+
+    <div class="movement flexcol ">
+      <label class="block-label" for="system.movement">{{localize 'ROGUE.Movement.Movement'}}</label>
+      <div class="attributes flexrow">
+        <div class="combat resource">
+          <label for="system.movement.combat" class="resource-label">{{localize 'ROGUE.Movement.Combat'}}</label>
+          <input class="clear-input" type="number" name="system.movement.combat" value="{{system.movement.combat}}" data-dtype="Number"/>
+          <i class="far fa-question-circle" title="{{localize 'ROGUE.Movement.CombatUnits'}}" style="color: #cdab8f;"></i>
+        </div>
+        <div class="exploration resource">
+          <label for="system.movement.exploration" class="resource-label">{{localize 'ROGUE.Movement.Exploration'}}</label>
+          <input class="clear-input" type="number" name="system.movement.exploration" value="{{system.movement.exploration}}" data-dtype="Number"/>
+          <i class="far fa-question-circle" title="{{localize 'ROGUE.Movement.ExplorationUnits'}}" style="color: #cdab8f;"></i>
+        </div>
+        <div class="journey resource">
+          <label for="system.movement.journey" class="resource-label">{{localize 'ROGUE.Movement.Journey'}}</label>
+          <input class="clear-input" type="number" name="system.movement.journey" value="{{system.movement.journey}}" data-dtype="Number"/>
+          <i class="far fa-question-circle" title="{{localize 'ROGUE.Movement.JourneyUnits'}}" style="color: #cdab8f;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs flexrow" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="general">{{localize 'ROGUE.NavGeneral'}}</a>
+    <a class="item" data-tab="notes">{{localize 'ROGUE.NavNotes'}}</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Owned Narrative Tab --}}
+    <div class="tab general" data-group="primary" data-tab="general">
+      {{> "systems/rogue/templates/actor/parts/character-general.hbs"}}
+    </div>
+
+    {{!-- Owned Description Tab --}}
+    <div class="tab notes" data-group="primary" data-tab="notes">
+      {{> "systems/rogue/templates/actor/parts/character-notes.hbs"}}
+    </div>
+
+  </section>
+</form>

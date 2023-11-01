@@ -1,0 +1,27 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Персонаж Гравця",
+      "npc": "Персонаж Рефері"
+    },
+    "Item": {
+      "item": "Предмет"
+    }
+  },
+
+  "ROGUE.ActorName": "Ім'я",
+  "ROGUE.ItemName": "Назва",
+
+  "ROGUE.Strength": "Сила",
+  "ROGUE.Dexterity": "Спритність",
+  "ROGUE.Constitution": "Статура",
+  "ROGUE.Intelligence": "Інтелект",
+  "ROGUE.Wisdom": "Мудрість",
+  "ROGUE.Charisma": "Харизма",
+  "ROGUE.StrengthShort": "Сил",
+  "ROGUE.DexterityShort": "Спр",
+  "ROGUE.ConstitutionShort": "Ста",
+  "ROGUE.IntelligenceShort": "Інт",
+  "ROGUE.WisdomShort": "Муд",
+  "ROGUE.CharismaShort": "Хар"
+}

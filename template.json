@@ -1,0 +1,77 @@
+{
+  "Actor":
+  {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "hp": {
+          "value": 5,
+          "max": 5
+        },
+        "defense": 0,
+        "abilities": {
+          "str": 0,
+          "dex": 0,
+          "con": 0,
+          "int": 0,
+          "wis": 0,
+          "cha": 0
+        },
+        "movement": {
+          "combat": 40,
+          "exploration": 120,
+          "journey": 24
+        },
+        "inventory": {
+          "value": 10,
+          "used": 0
+        },
+      "biography": "",
+      "notes": ""
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "level": 1,
+      "xp": 0,
+      "background":""
+    },
+    "npc": {
+      "templates": ["base"],
+      "hd": "",
+      "morale": 5
+    }
+  },
+  "Item": {
+    "types": ["loot", "weapon", "protection", "spell"],
+    "templates": {
+      "base": {
+        "name": "",
+        "description": ""
+      },
+      "gear": {
+        "slots": 1,
+        "price": 1
+      }
+    },
+    "loot": {
+      "templates": ["base", "gear"]
+    },
+    "weapon": {
+      "templates": ["base", "gear"],
+      "damage": "",
+      "type": "",
+      "range": false,
+      "ammunition": 0
+    },
+    "protection": {
+      "templates":["base", "gear"],
+      "defense": "+1"
+    },
+    "spell": {
+      "templates": ["base"],
+      "used": false,
+      "level": 0
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Персонаж Гравця",
+      "npc": "Персонаж Рефері"
+    },
+    "Item": {
+      "loot": "Предмет",
+      "weapon": "Зброя",
+      "protection": "Захист",
+      "spell": "Закляття"
+    }
+  },
+
+  "ROGUE": {
+
+    "ActorName": "Ім'я",
+    "ItemName": "Назва",
+
+    "Level": "Рівень",
+    "XP": "Досвіт",
+    "HP": "Стійкість",
+    "Background": "Передісторія",
+
+    "Str": "Сил",
+    "Dex": "Спр",
+    "Con": "Ста",
+    "Int": "Інт",
+    "Wis": "Муд",
+    "Cha": "Хар",
+
+    "Strength": "Сила",
+    "Dexterity": "Спритність",
+    "Constitution": "Статура",
+    "Intelligence": "Інтелект",
+    "Wisdom": "Мудрість",
+    "Charisma": "Харизма",
+
+    "Armor": "Захист",
+    "Movement": {
+      "Movement": "Швидкість",
+      "Combat": "Бій",
+      "Exploration": "Дослідження",
+      "Journey": "Подорож",
+      "CombatUnits": "фути в раунд",
+      "ExplorationUnits": "дослідження підземель, фути в хід \nдослідження поверхні, ярди в хід \nбіг по прямій, фути в раунд",
+      "JourneyUnits": "милі в день"
+    },
+
+    "NavGeneral": "Основне",
+    "NavNotes": "Нотатки",
+
+    "Inventory": "Спорядження",
+    "CreateLoot": "Створити Предмет",
+    "CreateProtection": "Створити Обладунок",
+    "CreateWeapon": "Створити Зброю",
+    "Slots": "Комірки",
+    "Price": "Ціна",
+
+    "Protection": "Обладунок",
+    "Defense": "Захист",
+
+    "Spells": "Закляття",
+    "CreateSpell": "Створити Закляття",
+
+    "Age": "Вік",
+
+    "ItemAdd": "Додати",
+    "ItemDelete": "Вмдалити",
+    "ItemEdit": "Редагувати"
+  }
+}
