@@ -1,4 +1,4 @@
-# Archeterica Lite
+# Пройдисвіт
 
 [![Foundry Shield 11]][Foundry URL]
 [![Version]][Version URL]
