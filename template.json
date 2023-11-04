@@ -33,7 +33,7 @@
     "character": {
       "templates": ["base"],
       "level": 1,
-      "xp": 0,
+      "exp": 0,
       "background":""
     },
     "npc": {
@@ -59,19 +59,21 @@
     },
     "weapon": {
       "templates": ["base", "gear"],
-      "damage": "",
-      "type": "",
-      "range": false,
-      "ammunition": 0
+      "damage": "1d6",
+      "type": "one-handed"
     },
     "protection": {
       "templates":["base", "gear"],
-      "defense": "+1"
+      "defense": {
+        "type": "bonus",
+        "value": 1
+      }
     },
     "spell": {
       "templates": ["base"],
-      "used": false,
-      "level": 0
+      "level": null,
+      "prepared": false,
+      "blocked": false
     }
   }
 }

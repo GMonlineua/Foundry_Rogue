@@ -19,7 +19,7 @@
     flex: 1;
 
     h1.item-name {
-      height: 50px;
+      height: 35px;
       padding: 0px;
       margin: 5px 0;
       border-bottom: 0;
@@ -31,14 +31,22 @@
         margin: 0;
       }
     }
+
+    .resources.flexrow {
+      .resource {
+        margin-bottom: 5px;
+      }
+
+      .resource.damage {
+        input {
+          width: 50px;
+        }
+      }
+    }
   }
 }
 
 .sheet-body {
-  .info-bar{
-    flex: auto;
-  }
-
   .editor-block {
     flex: auto;
 

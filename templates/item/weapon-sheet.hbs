@@ -1,0 +1,42 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="items-header">
+    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="item-name"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ROGUE.Weapon'}}"/></h1>
+      <div class="resources flexrow">
+        <div class="resource">
+          <label for="system.slots" class="resource-label">{{localize 'ROGUE.Slots'}}:</label>
+          <input type="number" name="system.slots" value="{{system.slots}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label for="system.price" class="resource-label">{{localize 'ROGUE.Price'}}:</label>
+          <input type="number" name="system.price" value="{{system.price}}" data-dtype="Number"/>
+        </div>
+        <div class="resource damage">
+          <label for="system.damage" class="resource-label">{{localize 'ROGUE.DamageDice'}}:</label>
+          <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label for="system.type" class="resource-label">{{localize 'ROGUE.WeaponType'}}:</label>
+          <select name="system.type">
+            {{#select system.type}}
+            <option value="one-handed">{{localize 'ROGUE.OneHanded'}}</option>
+            <option value="two-handed">{{localize 'ROGUE.TwoHanded'}}</option>
+            <option value="none">-</option>
+            {{/select}}
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Description Tab --}}
+    <div class="tab">
+      <hr>
+      {{editor enrichedDescription target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+  </section>
+
+</form>

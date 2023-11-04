@@ -51,17 +51,30 @@
     "NavNotes": "Нотатки",
 
     "Inventory": "Спорядження",
-    "CreateLoot": "Створити Предмет",
-    "CreateProtection": "Створити Обладунок",
-    "CreateWeapon": "Створити Зброю",
     "Slots": "Комірки",
     "Price": "Ціна",
 
+    "Loot": "Предмет",
+    "CreateLoot": "Створити Предмет",
+
     "Protection": "Обладунок",
+    "CreateProtection": "Створити Обладунок",
     "Defense": "Захист",
+    "DefenseBonus": "Бонус",
+    "DefenseValue": "Значення",
+
+    "Weapon": "Зброя",
+    "CreateWeapon": "Створити Зброю",
+    "DamageDice": "КП",
+    "WeaponType": "Тип",
+    "OneHanded": "Одноручне",
+    "TwoHanded": "Дворучне",
 
     "Spells": "Закляття",
     "CreateSpell": "Створити Закляття",
+    "SpellPrepared": "Підготовлено",
+    "SpellBlocked": "Заблоковано",
+    "SpellLevel": "Рівень",
 
     "Age": "Вік",
 
