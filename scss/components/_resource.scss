@@ -23,19 +23,6 @@
   }
 }
 
-.resource-dot .resource-dot-step {
-    height: 14px;
-    width: 14px;
-    border: 1px solid #000;
-    display: inline-block;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.resource-dot .resource-dot-step.active {
-    background-color: #790813;
-}
-
 .attributes {
   .resource {
     padding-top: 5px;

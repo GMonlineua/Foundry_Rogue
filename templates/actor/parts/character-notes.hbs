@@ -1,4 +1,21 @@
-<div class="resource exp">
+<div class="resources flexrow">
+  <div class="resource exp">
     <label for="system.exp" class="resource-label">{{localize 'ROGUE.Experience'}}:</label>
-    <input type="number" name="system.exp" value="{{system.exp}}" data-dtype="Number"/>
+    <input type="number" name="system.exp.value" value="{{system.exp.value}}" data-dtype="Number"/>
+    <span>/</span>
+    <input type="number" name="system.exp.target" value="{{system.exp.target}}" data-dtype="Number"/>
+  </div>
+  <div class="resource languages flexrow">
+    <label class="resource-label">{{localize 'ROGUE.KnownLanguages'}}:</label>
+    <input type="text" name="system.languages" value="{{system.languages}}" data-dtype="String"/>
+  </div>
+</div>
+
+<div class="notes-block">
+  <h2>{{localize 'ROGUE.Notes'}}</h2>
+  {{editor enrichedNotes target="system.notes" button=true owner=owner editable=editable}}
+</div>
+<div class="biography">
+  <h2>{{localize 'ROGUE.Description'}}</h2>
+  {{editor enrichedDescription target="system.description" button=true owner=owner editable=editable}}
 </div>

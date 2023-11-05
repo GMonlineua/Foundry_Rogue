@@ -196,6 +196,36 @@ nav.sheet-tabs {
     }
   }
 
+  .tab.notes {
+    font-size: small;
+
+    .exp {
+      width: 180px;
+      flex-grow: 0;
+
+      input {
+        max-width: 50px;
+      }
+    }
+
+    .languages {
+      flex-grow: 1;
+
+      label {
+        flex-grow: 0;
+      }
+
+      input {
+        flex-grow: 1;
+        margin: 0 5px;
+      }
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+  }
+
   .grid {
     gap: 10px;
   }

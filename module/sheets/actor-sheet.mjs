@@ -28,8 +28,8 @@ export class RogueActorSheet extends ActorSheet
     const actorData = this.actor.toObject(false);
 
     // Encrich editor content
-    // context.enrichedNotes = await TextEditor.enrichHTML(this.object.system.notes, { async: true })
-    // context.enrichedBiography = await TextEditor.enrichHTML(this.object.system.biography, { async: true })
+    context.enrichedNotes = await TextEditor.enrichHTML(this.object.system.notes, { async: true })
+    context.enrichedDescription = await TextEditor.enrichHTML(this.object.system.description, { async: true })
 
     // Add the actor's data to context.data for easier access, as well as flags.
     context.system = actorData.system;
@@ -85,7 +85,8 @@ export class RogueActorSheet extends ActorSheet
     super.activateListeners(hbs);
 
     // Rollable.
-    hbs.find('.check').click(this._onCheck.bind(this));
+    // hbs.find('.check').click(this._onCheck.bind(this));
+    // hbs.find('.rollable').click(this._onRoll.bind(this));
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
@@ -119,27 +120,17 @@ export class RogueActorSheet extends ActorSheet
   /* -------------------------------------------- */
 
   /**
-   * Handle clickable rolls.
+   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
    * @param {Event} event   The originating click event
    * @private
    */
-
-  _onCheck(event) {
-    event.preventDefault();
-    const testType = event.currentTarget.dataset.type;
-    rollDice(this, testType)
-  }
-
   _onItemCreate(event)
   {
     event.preventDefault();
     const header = event.currentTarget;
-    // Get the type of item to create.
     const type = header.dataset.type;
-    // Grab any data associated with this control.
     const data = duplicate(header.dataset);
-    // Initialize a default name.
-    const name = `New ${type.capitalize()}`;
+    const name = game.i18n.localize("ROGUE.NewItem");
     // Prepare the item object.
     const itemData = {
       name: name,

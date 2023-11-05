@@ -46,7 +46,6 @@
       "ExplorationUnits": "дослідження підземель, фути в хід \nдослідження поверхні, ярди в хід \nбіг по прямій, фути в раунд",
       "JourneyUnits": "милі в день"
     },
-    "Experience": "Досвід",
 
     "NavGeneral": "Основне",
     "NavNotes": "Нотатки",
@@ -77,10 +76,14 @@
     "SpellBlocked": "Заблоковано",
     "SpellLevel": "Рівень",
 
-    "Age": "Вік",
+    "Experience": "Досвід",
+    "KnownLanguages": "Відомі Мови",
+    "Notes": "Нотатки",
+    "Description": "Опис",
 
     "ItemAdd": "Додати",
     "ItemDelete": "Вмдалити",
-    "ItemEdit": "Редагувати"
+    "ItemEdit": "Редагувати",
+    "NewItem": "Новий"
   }
 }

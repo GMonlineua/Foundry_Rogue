@@ -503,6 +503,29 @@ input.clear-input:focus {
   display: block;
   background: url(../ui/parchment.jpg) repeat;
 }
+.rogue .sheet-body .tab.notes {
+  font-size: small;
+}
+.rogue .sheet-body .tab.notes .exp {
+  width: 180px;
+  flex-grow: 0;
+}
+.rogue .sheet-body .tab.notes .exp input {
+  max-width: 50px;
+}
+.rogue .sheet-body .tab.notes .languages {
+  flex-grow: 1;
+}
+.rogue .sheet-body .tab.notes .languages label {
+  flex-grow: 0;
+}
+.rogue .sheet-body .tab.notes .languages input {
+  flex-grow: 1;
+  margin: 0 5px;
+}
+.rogue .sheet-body .tab.notes h2 {
+  margin-top: 10px;
+}
 .rogue .sheet-body .grid {
   gap: 10px;
 }
@@ -701,17 +724,6 @@ input.clear-input:focus {
 }
 .rogue .resource input {
   display: inline;
-}
-.rogue .resource-dot .resource-dot-step {
-  height: 14px;
-  width: 14px;
-  border: 1px solid #000;
-  display: inline-block;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.rogue .resource-dot .resource-dot-step.active {
-  background-color: #790813;
 }
 .rogue .attributes .resource {
   padding-top: 5px;

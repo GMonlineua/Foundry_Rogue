@@ -16,7 +16,7 @@ export class RogueActor extends Actor {
   prepareDerivedData() {
     const actorData = this;
     const systemData = actorData.system;
-    const flags = actorData.flags.theoldrat || {};
+    const flags = actorData.flags.rogue || {};
   }
 
 }
