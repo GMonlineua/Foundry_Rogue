@@ -2,7 +2,7 @@
   "id": "rogue",
   "title": "Rogue",
   "description": "Rogue | Пройдисвіт",
-  "version": "0.1",
+  "version": "0.2",
   "compatibility": {
     "minimum": "11",
     "verified": "11",
@@ -39,5 +39,10 @@
   "initiative": "d6",
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "health"
+  "primaryTokenAttribute": "hp",
+  "url": "https://github.com/GMonlineua/Foundry_Rogue",
+  "manifest": "https://raw.githubusercontent.com/GMonlineua/Foundry_Rogue/master/system.json",
+  "download": "https://github.com/GMonlineua/Foundry_Rogue/releases/download/v0.2-alpha/version-0.2.zip",
+  "license": "https://github.com/GMonlineua/Foundry_Rogue/blob/master/LICENSE.md",
+  "changelog": "https://github.com/GMonlineua/Foundry_Rogue/blob/master/CHANGELOG.md"
 }

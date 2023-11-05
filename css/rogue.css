@@ -406,7 +406,16 @@ input.clear-input:focus {
   margin: 0;
   text-decoration-line: underline;
 }
-.rogue .sheet-header .header-fields .level {
+.rogue .sheet-header .header-fields .abilities {
+  margin-top: 10px;
+  gap: 10px;
+}
+.rogue .sheet-header .header-fields .abilities .resource span.plus {
+  position: relative;
+  top: 1px;
+  left: 12px;
+}
+.rogue .character .level {
   position: absolute;
   top: 0;
   right: 10px;
@@ -417,18 +426,32 @@ input.clear-input:focus {
   border-radius: 100%;
   text-align: center;
 }
-.rogue .sheet-header .header-fields .level * {
+.rogue .character .level * {
   display: block;
   margin: auto;
 }
-.rogue .sheet-header .header-fields .abilities {
-  margin-top: 10px;
-  gap: 10px;
+.rogue .npc .defense {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 80px;
+  height: 57px;
+  padding-top: 10px;
+  text-align: center;
 }
-.rogue .sheet-header .header-fields .abilities .resource span.plus {
+.rogue .npc .defense label, .rogue .npc .defense div {
+  display: block;
+  margin: auto;
+}
+.rogue .npc .defense .plus {
   position: relative;
-  top: 1px;
-  left: 12px;
+  right: -10px;
+}
+.rogue .npc label.block-label {
+  display: block;
+  margin: auto;
+  padding-top: 5px;
+  text-transform: uppercase;
 }
 .rogue .after-header {
   max-height: 55px;

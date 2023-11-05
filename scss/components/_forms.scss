@@ -65,22 +65,6 @@
       }
     }
 
-    .level {
-      position: absolute;
-      top: 0;
-      right: 10px;
-      width: 57px;
-      height: 57px;
-      padding-top: 10px;
-      border: 2px solid #000;
-      border-radius: 100%;
-      text-align: center;
-
-      * {
-        display: block;
-        margin: auto;
-      }
-    }
     .abilities {
       margin-top: 10px;
       gap: 10px;
@@ -93,6 +77,54 @@
         }
       }
     }
+  }
+}
+
+.character {
+  .level {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 57px;
+    height: 57px;
+    padding-top: 10px;
+    border: 2px solid #000;
+    border-radius: 100%;
+    text-align: center;
+
+    * {
+      display: block;
+      margin: auto;
+    }
+  }
+}
+
+.npc {
+  .defense {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 80px;
+    height: 57px;
+    padding-top: 10px;
+    text-align: center;
+
+    label, div {
+      display: block;
+      margin: auto;
+    }
+
+    .plus {
+      position: relative;
+      right: -10px;
+    }
+  }
+
+  label.block-label {
+    display: block;
+    margin: auto;
+    padding-top: 5px;
+    text-transform: uppercase;
   }
 }
 
