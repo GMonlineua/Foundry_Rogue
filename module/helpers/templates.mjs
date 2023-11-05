@@ -9,6 +9,8 @@
     // Actor tabs
     "systems/rogue/templates/actor/parts/character-general.hbs",
     "systems/rogue/templates/actor/parts/character-notes.hbs",
+    "systems/rogue/templates/actor/parts/npc-general.hbs",
+    "systems/rogue/templates/actor/parts/npc-notes.hbs",
     // Parts
     "systems/rogue/templates/actor/parts/abilities.hbs"
     // Item parts
