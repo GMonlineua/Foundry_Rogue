@@ -81,6 +81,9 @@
     "Notes": "Нотатки",
     "Description": "Опис",
 
+    "Morale": "Бойовий дух",
+    "AddDescription": "Особливість",
+
     "ItemAdd": "Додати",
     "ItemDelete": "Вмдалити",
     "ItemEdit": "Редагувати",

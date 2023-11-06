@@ -4,50 +4,18 @@
 /* ----------------------------------------- */
 
 .items-list {
+  columns: 2;
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
   color: #444;
 
-  // Item Name
-  .item-name {
-    flex: 2;
-    margin: 0;
-    overflow: hidden;
-    font-size: 13px;
-    text-align: left;
-    align-items: center;
-    display: flex;
-    h3, h4 {
-      margin: 0;
-      white-space: nowrap;
-      overflow-x: hidden;
-    }
-  }
-
-  // Control Buttons
-  .item-controls {
-    position: absolute;
-    top: 4px;
-    right: 0;
-    display: flex;
-    justify-content: flex-end;
-    a {
-      font-size: 12px;
-      text-align: center;
-      margin: 0 6px;
-    }
-  }
-
-  // Individual Item
   .item {
     position: relative;
     align-items: center;
-    padding: 0 2px; // to align with the header border
-    border-bottom: 1px solid #c9c7b8;
-    &:last-child { border-bottom: none; }
+    background-color: rgba(165, 154, 132, 0.2);
+    margin-bottom: 5px;
+
     .item-name {
       color: #191813;
       .item-image {
@@ -56,6 +24,35 @@
         background-size: 30px;
         border: none;
         margin-right: 5px;
+        padding: 3px;
+      }
+    }
+
+    .item-name {
+      flex: 2;
+      margin: 0;
+      overflow: hidden;
+      font-size: 13px;
+      text-align: left;
+      align-items: center;
+      display: flex;
+      h3, h4 {
+        margin: 0;
+        white-space: nowrap;
+        overflow-x: hidden;
+      }
+    }
+
+    .item-controls {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
+      a {
+        font-size: 12px;
+        text-align: center;
+        margin: 0 6px;
       }
     }
   }
@@ -65,5 +62,15 @@
     border-left: 1px solid #c9c7b8;
     border-right: 1px solid #c9c7b8;
     font-size: 12px;
+  }
+}
+
+.drop-btn {
+  font-family: $font-primary;
+}
+
+.drop-content {
+  .fa-plus {
+    margin-right: 3px;
   }
 }

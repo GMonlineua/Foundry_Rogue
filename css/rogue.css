@@ -366,6 +366,7 @@ input.clear-input:focus {
 .rogue .sheet-header .img-block .profile-img {
   height: 100%;
   width: 100%;
+  border: none;
 }
 .rogue .sheet-header .img-block .hp-bar {
   position: relative;
@@ -459,11 +460,6 @@ input.clear-input:focus {
 .rogue .after-header .defense {
   flex: 1;
 }
-.rogue .after-header .defense .resource span.plus {
-  position: relative;
-  top: 1px;
-  left: 12px;
-}
 .rogue .after-header .movement {
   position: relative;
   flex: 4;
@@ -525,6 +521,11 @@ input.clear-input:focus {
 .rogue .sheet-body .tab.general .inventory .create-item:hover .drop-content {
   display: block;
   background: url(../ui/parchment.jpg) repeat;
+}
+.rogue .sheet-body .tab.general .spells ol.items-list {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
 }
 .rogue .sheet-body .tab.notes {
   font-size: small;
@@ -630,47 +631,17 @@ input.clear-input:focus {
   min-height: 200px;
 }
 .rogue .items-list {
+  columns: 2;
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
   color: #444;
-}
-.rogue .items-list .item-name {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  font-size: 13px;
-  text-align: left;
-  align-items: center;
-  display: flex;
-}
-.rogue .items-list .item-name h3, .rogue .items-list .item-name h4 {
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden;
-}
-.rogue .items-list .item-controls {
-  position: absolute;
-  top: 4px;
-  right: 0;
-  display: flex;
-  justify-content: flex-end;
-}
-.rogue .items-list .item-controls a {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 6px;
 }
 .rogue .items-list .item {
   position: relative;
   align-items: center;
-  padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
-}
-.rogue .items-list .item:last-child {
-  border-bottom: none;
+  background-color: rgba(165, 154, 132, 0.2);
+  margin-bottom: 5px;
 }
 .rogue .items-list .item .item-name {
   color: #191813;
@@ -681,12 +652,45 @@ input.clear-input:focus {
   background-size: 30px;
   border: none;
   margin-right: 5px;
+  padding: 3px;
+}
+.rogue .items-list .item .item-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.rogue .items-list .item .item-name h3, .rogue .items-list .item .item-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.rogue .items-list .item .item-controls {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.rogue .items-list .item .item-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
 }
 .rogue .items-list .item-prop {
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
+}
+.rogue .drop-btn {
+  font-family: "Lora", serif;
+}
+.rogue .drop-content .fa-plus {
+  margin-right: 3px;
 }
 .rogue .limited-sheet {
   flex: 0 auto;

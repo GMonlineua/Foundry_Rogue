@@ -5,14 +5,9 @@
  */
  export const preloadHandlebarsTemplates = async function() {
   return loadTemplates([
-
-    // Actor tabs
-    "systems/rogue/templates/actor/parts/character-general.hbs",
-    "systems/rogue/templates/actor/parts/character-notes.hbs",
-    "systems/rogue/templates/actor/parts/npc-general.hbs",
-    "systems/rogue/templates/actor/parts/npc-notes.hbs",
-    // Parts
-    "systems/rogue/templates/actor/parts/abilities.hbs"
-    // Item parts
+    "systems/rogue/templates/actor/parts/abilities.hbs",
+    "systems/rogue/templates/actor/parts/inventory.hbs",
+    "systems/rogue/templates/actor/parts/movement.hbs",
+    "systems/rogue/templates/actor/parts/notes.hbs"
   ]);
 };

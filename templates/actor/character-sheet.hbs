@@ -20,6 +20,7 @@
         <input class="clear-input" type="number" name="system.level" value="{{system.level}}" data-dtype="Number"/>
       </div>
       <h3>{{localize 'ROGUE.Background'}}: <input class="clear-input" name="system.background" type="text" value="{{system.background}}" data-dtype="String"/></h3>
+
       {{> "systems/rogue/templates/actor/parts/abilities.hbs"}}
     </div>
   </header>
@@ -28,31 +29,11 @@
     <div class="defense attributes">
       <div class="resource">
         <label for="system.defense" class="resource-label">{{localize 'ROGUE.Armor'}} <span>({{#ability system.defense}}{{/ability}})</span></label>
-        <span class="plus">+</span>
         <input class="clear-input" type="number" name="system.defense" value="{{system.defense}}" data-dtype="Number"/>
       </div>
     </div>
 
-    <div class="movement flexcol">
-      <label class="block-label" for="system.movement">{{localize 'ROGUE.Movement.Movement'}}</label>
-      <div class="attributes flexrow">
-        <div class="combat resource">
-          <label for="system.movement.combat" class="resource-label">{{localize 'ROGUE.Movement.Combat'}}</label>
-          <input class="clear-input" type="number" name="system.movement.combat" value="{{system.movement.combat}}" data-dtype="Number"/>
-          <i class="far fa-question-circle" title="{{localize 'ROGUE.Movement.CombatUnits'}}" style="color: #cdab8f;"></i>
-        </div>
-        <div class="exploration resource">
-          <label for="system.movement.exploration" class="resource-label">{{localize 'ROGUE.Movement.Exploration'}}</label>
-          <input class="clear-input" type="number" name="system.movement.exploration" value="{{system.movement.exploration}}" data-dtype="Number"/>
-          <i class="far fa-question-circle" title="{{localize 'ROGUE.Movement.ExplorationUnits'}}" style="color: #cdab8f;"></i>
-        </div>
-        <div class="journey resource">
-          <label for="system.movement.journey" class="resource-label">{{localize 'ROGUE.Movement.Journey'}}</label>
-          <input class="clear-input" type="number" name="system.movement.journey" value="{{system.movement.journey}}" data-dtype="Number"/>
-          <i class="far fa-question-circle" title="{{localize 'ROGUE.Movement.JourneyUnits'}}" style="color: #cdab8f;"></i>
-        </div>
-      </div>
-    </div>
+    {{> "systems/rogue/templates/actor/parts/movement.hbs"}}
   </div>
 
   {{!-- Sheet Tab Navigation --}}
@@ -67,12 +48,24 @@
 
     {{!-- Owned Narrative Tab --}}
     <div class="tab general" data-group="primary" data-tab="general">
-      {{> "systems/rogue/templates/actor/parts/character-general.hbs"}}
+      {{> "systems/rogue/templates/actor/parts/inventory.hbs"}}
     </div>
 
     {{!-- Owned Description Tab --}}
     <div class="tab notes" data-group="primary" data-tab="notes">
-      {{> "systems/rogue/templates/actor/parts/character-notes.hbs"}}
+      <div class="resources flexrow">
+        <div class="resource exp">
+          <label for="system.exp" class="resource-label">{{localize 'ROGUE.Experience'}}:</label>
+          <input type="number" name="system.exp.value" value="{{system.exp.value}}" data-dtype="Number"/>
+          <span>/</span>
+          <input type="number" name="system.exp.target" value="{{system.exp.target}}" data-dtype="Number"/>
+        </div>
+        <div class="resource languages flexrow">
+          <label class="resource-label">{{localize 'ROGUE.KnownLanguages'}}:</label>
+          <input type="text" name="system.languages" value="{{system.languages}}" data-dtype="String"/>
+        </div>
+      </div>
+      {{> "systems/rogue/templates/actor/parts/notes.hbs"}}
     </div>
 
   </section>

@@ -5,23 +5,85 @@
       "npc": "Персонаж Рефері"
     },
     "Item": {
-      "item": "Предмет"
+      "loot": "Предмет",
+      "weapon": "Зброя",
+      "protection": "Захист",
+      "spell": "Закляття"
     }
   },
 
-  "ROGUE.ActorName": "Ім'я",
-  "ROGUE.ItemName": "Назва",
+  "ROGUE": {
 
-  "ROGUE.Strength": "Сила",
-  "ROGUE.Dexterity": "Спритність",
-  "ROGUE.Constitution": "Статура",
-  "ROGUE.Intelligence": "Інтелект",
-  "ROGUE.Wisdom": "Мудрість",
-  "ROGUE.Charisma": "Харизма",
-  "ROGUE.StrengthShort": "Сил",
-  "ROGUE.DexterityShort": "Спр",
-  "ROGUE.ConstitutionShort": "Ста",
-  "ROGUE.IntelligenceShort": "Інт",
-  "ROGUE.WisdomShort": "Муд",
-  "ROGUE.CharismaShort": "Хар"
+    "ActorName": "Ім'я",
+    "ItemName": "Назва",
+
+    "Level": "Рівень",
+    "XP": "Досвіт",
+    "HP": "Стійкість",
+    "Background": "Передісторія",
+
+    "Str": "Сил",
+    "Dex": "Спр",
+    "Con": "Ста",
+    "Int": "Інт",
+    "Wis": "Муд",
+    "Cha": "Хар",
+
+    "Strength": "Сила",
+    "Dexterity": "Спритність",
+    "Constitution": "Статура",
+    "Intelligence": "Інтелект",
+    "Wisdom": "Мудрість",
+    "Charisma": "Харизма",
+
+    "Armor": "Захист",
+    "Movement": {
+      "Movement": "Швидкість",
+      "Combat": "Бій",
+      "Exploration": "Дослідження",
+      "Journey": "Подорож",
+      "CombatUnits": "фути в раунд",
+      "ExplorationUnits": "дослідження підземель, фути в хід \nдослідження поверхні, ярди в хід \nбіг по прямій, фути в раунд",
+      "JourneyUnits": "милі в день"
+    },
+
+    "NavGeneral": "Основне",
+    "NavNotes": "Нотатки",
+
+    "Inventory": "Спорядження",
+    "Slots": "Комірки",
+    "Price": "Ціна",
+
+    "Loot": "Предмет",
+    "CreateLoot": "Створити Предмет",
+
+    "Protection": "Обладунок",
+    "CreateProtection": "Створити Обладунок",
+    "Defense": "Захист",
+    "DefenseBonus": "Бонус",
+    "DefenseValue": "Значення",
+
+    "Weapon": "Зброя",
+    "CreateWeapon": "Створити Зброю",
+    "DamageDice": "КП",
+    "WeaponType": "Тип",
+    "OneHanded": "Одноручне",
+    "TwoHanded": "Дворучне",
+
+    "Spells": "Закляття",
+    "CreateSpell": "Створити Закляття",
+    "SpellPrepared": "Підготовлено",
+    "SpellBlocked": "Заблоковано",
+    "SpellLevel": "Рівень",
+
+    "Experience": "Досвід",
+    "KnownLanguages": "Відомі Мови",
+    "Notes": "Нотатки",
+    "Description": "Опис",
+
+    "ItemAdd": "Додати",
+    "ItemDelete": "Вмдалити",
+    "ItemEdit": "Редагувати",
+    "NewItem": "Новий"
+  }
 }
