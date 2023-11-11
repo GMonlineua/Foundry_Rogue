@@ -8,6 +8,8 @@
     "systems/rogue/templates/actor/parts/abilities.hbs",
     "systems/rogue/templates/actor/parts/inventory.hbs",
     "systems/rogue/templates/actor/parts/movement.hbs",
-    "systems/rogue/templates/actor/parts/notes.hbs"
+    "systems/rogue/templates/actor/parts/notes.hbs",
+
+    "systems/rogue/templates/item/parts/gear.hbs"
   ]);
 };

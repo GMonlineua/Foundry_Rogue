@@ -22,21 +22,16 @@
           "exploration": 120,
           "journey": 24
         },
-        "inventory": {
-          "value": 10,
-          "used": 0
-        },
       "description": "",
       "notes": ""
       }
     },
     "character": {
       "templates": ["base"],
-      "level": 1,
       "exp": {
-        "value": 0,
-        "target": 200
+        "value": 0
       },
+      "slots": {},
       "background":"",
       "languages": ""
     },

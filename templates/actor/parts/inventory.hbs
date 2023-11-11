@@ -1,6 +1,12 @@
 <div class="item-block inventory">
   <div class="block-header">
     <h2>{{localize 'ROGUE.Inventory'}}</h2>
+    <div class="slots">
+      <span>{{localize 'ROGUE.Slots'}}: </sapn>
+      <span>{{system.slots.used}}</span>
+      <span>/</span>
+      <span name="system.slots.max">{{system.slots.max}}</span>
+    </div>
     <div class="create-item">
       <button class="drop-btn"><i class="fas fa-plus"></i>{{localize 'ROGUE.ItemAdd'}}</button>
       <div class="drop-content">

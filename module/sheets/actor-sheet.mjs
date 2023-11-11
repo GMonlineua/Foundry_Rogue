@@ -84,10 +84,6 @@ export class RogueActorSheet extends ActorSheet
   activateListeners(hbs) {
     super.activateListeners(hbs);
 
-    // Rollable.
-    // hbs.find('.check').click(this._onCheck.bind(this));
-    // hbs.find('.rollable').click(this._onRoll.bind(this));
-
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 

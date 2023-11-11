@@ -17,7 +17,7 @@
       <h1 class="charname"><input class="clear-input" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'ROGUE.ActorName'}}"/></h1>
       <div class="resource level">
         <label for="system.level" class="resource-label">{{localize 'ROGUE.Level'}}</label>
-        <input class="clear-input" type="number" name="system.level" value="{{system.level}}" data-dtype="Number"/>
+        <span name="system.level">{{system.level}}</span>
       </div>
       <h3>{{localize 'ROGUE.Background'}}: <input class="clear-input" name="system.background" type="text" value="{{system.background}}" data-dtype="String"/></h3>
 
@@ -58,7 +58,7 @@
           <label for="system.exp" class="resource-label">{{localize 'ROGUE.Experience'}}:</label>
           <input type="number" name="system.exp.value" value="{{system.exp.value}}" data-dtype="Number"/>
           <span>/</span>
-          <input type="number" name="system.exp.target" value="{{system.exp.target}}" data-dtype="Number"/>
+          <span name="system.exp.max"/>{{system.exp.max}}</span>
         </div>
         <div class="resource languages flexrow">
           <label class="resource-label">{{localize 'ROGUE.KnownLanguages'}}:</label>

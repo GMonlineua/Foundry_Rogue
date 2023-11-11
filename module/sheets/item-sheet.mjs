@@ -8,7 +8,7 @@ export class RogueItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["rogue", "sheet", "item"],
-      width: 450,
+      width: 500,
       height: 400,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]      
     });

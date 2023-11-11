@@ -4,14 +4,7 @@
     <div class="header-fields">
       <h1 class="item-name"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ROGUE.Protection'}}"/></h1>
       <div class="resources flexrow">
-        <div class="resource">
-          <label for="system.slots" class="resource-label">{{localize 'ROGUE.Slots'}}: </label>
-          <input type="number" name="system.slots" value="{{system.slots}}" data-dtype="Number"/>
-        </div>
-        <div class="resource">
-          <label for="system.price" class="resource-label">{{localize 'ROGUE.Price'}}: </label>
-          <input type="number" name="system.price" value="{{system.price}}" data-dtype="Number"/>
-        </div>
+        {{> "systems/rogue/templates/item/parts/gear.hbs"}}
         <div class="resource">
           <label for="system.defense" class="resource-label">
             <span>{{localize 'ROGUE.Defense'}}</span>
