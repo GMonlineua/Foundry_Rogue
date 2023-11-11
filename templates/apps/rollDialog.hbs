@@ -1,0 +1,26 @@
+<form class="roll-template grid-2col">
+
+    <div class="advantages-block">
+      <select id="advantage" name="advantage" data-type="Number">
+        <option value="none">{{localize 'ROGUE.NoneAdvantage'}}</option>
+        <option value="advantage">{{localize 'ROGUE.Advantage'}}</option>
+        <option value="disadvantage">{{localize 'ROGUE.Disadvantage'}}</option>
+      </select>
+    </div>
+
+    <div class="modifier">
+      <label for="modifier">{{localize 'ROGUE.Modifier'}}: </label>
+      <input id="modifier" name="modifier" type="number" value="0" data-dtype="Number">
+    </div>
+
+    <div class="difficulty-block grid-span-2">
+      <label>{{localize 'ROGUE.OppositionRoll'}}:</label>
+      <input type="checkbox" id="opposition"/>
+
+      <div class="difficulty-content">
+        <label for="difficulty">{{localize 'ROGUE.Difficulty'}}:</label>
+        <input id="difficulty" type="number" value="15"/>
+      </div>
+    </div>
+
+</form>

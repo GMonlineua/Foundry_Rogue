@@ -1,3 +1,5 @@
+import { createRollDialog } from "../helpers/roll.mjs";
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -81,36 +83,49 @@ export class RogueActorSheet extends ActorSheet
   /* -------------------------------------------- */
 
   /** @override */
-  activateListeners(hbs) {
-    super.activateListeners(hbs);
+  activateListeners(html) {
+    super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
     // Add Inventory Item
-    hbs.find('.item-create').click(this._onItemCreate.bind(this));
+    html.find('.item-create').click(this._onItemCreate.bind(this));
 
     // Update Inventory Item
-    hbs.find('.item-edit').click(ev => {
+    html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // view Inventory Item
-    hbs.find('.item-view').click(ev => {
+    html.find('.item-view').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));        
       item.sheet.render(true);
     });
 
     // Delete Inventory Item
-    hbs.find('.item-delete').click(ev => {
+    html.find('.item-delete').click(ev => {
       const button = ev.currentTarget;
       const li = button.closest(".item");
       const item = this.actor.items.get(li?.dataset.itemId);
       return item.delete();
     });
+
+    // Rollable abilities.
+    html.find('.rollable').click(this._onRoll.bind(this));
+
+    // Drag events for macros.
+    if (this.actor.isOwner) {
+      let handler = ev => this._onDragStart(ev);
+      html.find('li.item').each((i, li) => {
+        if (li.classList.contains("inventory-header")) return;
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
+      });
+    }
   }
 
   /* -------------------------------------------- */
@@ -138,5 +153,39 @@ export class RogueActorSheet extends ActorSheet
 
     const cls = getDocumentClass("Item");
     return cls.create(itemData, {parent: this.actor});    
+  }
+
+  /**
+   * Handle clickable rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  _onRoll(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    // Handle item rolls.
+    if (dataset.rollType) {
+      if (dataset.rollType == 'item') {
+        const itemId = element.closest('.item').dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        if (item) return item.roll();
+      } else {
+        createRollDialog(dataset.rollType, dataset.rollNote, this);
+      }
+    }
+
+    // Handle rolls that supply the formula directly.
+    if (dataset.roll) {
+      let label = dataset.label ? `[ability] ${dataset.label}` : '';
+      let roll = new Roll(dataset.roll, this.actor.getRollData());
+      roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label,
+        rollMode: game.settings.get('core', 'rollMode'),
+      });
+      return roll;
+    }
   }
 }
