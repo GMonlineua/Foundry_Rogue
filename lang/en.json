@@ -81,6 +81,20 @@
     "Notes": "Нотатки",
     "Description": "Опис",
 
+    "Morale": "Бойовий дух",
+    "AddDescription": "Особливість",
+
+    "Roll": "Кидок",
+    "RollCancel": "Скасувати",
+    "NoneAdvantage": "Звичайний Кидок",
+    "Advantage": "Перевага",
+    "Disadvantage": "Завада",
+    "OppositionRoll": "Протистояння",
+    "Difficulty": "Складність",
+    "Modifier": "Модифікатор",
+
+    "AbilityCheck": "Перевірка Характеристики",
+
     "ItemAdd": "Додати",
     "ItemDelete": "Вмдалити",
     "ItemEdit": "Редагувати",
