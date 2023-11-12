@@ -37,6 +37,8 @@ export class RogueActorSheet extends ActorSheet
     context.system = actorData.system;
     context.flags = actorData.flags;
 
+    this._prepareCharacterData(context);
+
     // Prepare character data and items.
     if (actorData.type == 'character') {
       this._prepareItems(context);
@@ -48,6 +50,21 @@ export class RogueActorSheet extends ActorSheet
     }
 
     return context;
+  }
+
+  /**
+   * Organize and classify Items for Character sheets.
+   *
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  _prepareCharacterData(context) {
+    // Handle ability scores.
+    for (let [k, i] of Object.entries(context.system.abilities)) {
+      i.label = game.i18n.localize(CONFIG.ROGUE.abilitiesAbbr[k]) ?? k;
+      i.name = game.i18n.localize(CONFIG.ROGUE.abilities[k]) ?? k;
+    }
   }
 
     /**
@@ -178,7 +195,6 @@ export class RogueActorSheet extends ActorSheet
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `[ability] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

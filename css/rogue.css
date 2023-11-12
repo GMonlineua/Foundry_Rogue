@@ -413,6 +413,11 @@ input.clear-input:focus {
   background: none;
   text-shadow: none;
 }
+.rogue .sheet-body .tab.general .inventory .load {
+  position: absolute;
+  top: 6px;
+  right: 90px;
+}
 .rogue .sheet-body .tab.general .inventory .create-item {
   position: absolute;
   top: 0;

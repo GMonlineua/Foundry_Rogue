@@ -5,6 +5,7 @@ import { RogueItem } from "./documents/item.mjs";
 import { RogueItemSheet } from "./sheets/item-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { preprocessChatMessage, renderChatMessage } from "./helpers/chat-portraits.mjs";
+import { ROGUE } from "./helpers/config.mjs";
 
 Hooks.once('init', async function() {
 
@@ -12,6 +13,9 @@ Hooks.once('init', async function() {
     RogueActor,
     RogueItem
   };
+
+  // Add custom constants for configuration.
+  CONFIG.ROGUE = ROGUE;
 
   // Define custom Entity classes
   CONFIG.Actor.documentClass = RogueActor;
@@ -44,4 +48,20 @@ Hooks.on("renderChatMessage", renderChatMessage);
 
 Handlebars.registerHelper("ability", function(modifier) {
   return 10+modifier;
+});
+
+Handlebars.registerHelper("load", function(data) {
+  let load = game.i18n.localize("ROGUE.Unloaded");
+  if (data.free >= 5) {
+    load = game.i18n.localize("ROGUE.Unloaded")
+  } else if (data.free >= 2 && data.free < 5) {
+    load = game.i18n.localize("ROGUE.LightlyLoaded")
+  } else if (data.free >= 0 && data.free < 2) {
+    load = game.i18n.localize("ROGUE.HeavilyLoaded")
+  } else if (data.free >= -2 && data.free < 0) {
+    load = game.i18n.localize("ROGUE.Overloaded")
+  } else {
+    load = game.i18n.localize("ROGUE.MoveBlocked")
+  }
+  return load;
 });

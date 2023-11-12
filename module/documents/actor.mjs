@@ -15,6 +15,10 @@ export class RogueActor extends Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.rogue || {};
 
+    for (let [key, ability] of Object.entries(systemData.abilities)) {
+      ability.defense = 10 + ability.value;
+    }
+
     if (actorData.type == 'character') this._prepareCharacterData(actorData);
 
     // this._prepareNpcData(actorData);
@@ -48,7 +52,7 @@ export class RogueActor extends Actor {
     }
 
     // Inventory slots
-    systemData.slots.max = systemData.abilities.con + 10;
+    systemData.slots.max = systemData.abilities.con.value + 10;
     let used = 0;
     for (let i of actorData.items) {
       if (i.system.slots) {

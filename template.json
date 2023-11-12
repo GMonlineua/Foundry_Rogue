@@ -10,12 +10,24 @@
         },
         "defense": 0,
         "abilities": {
-          "str": 0,
-          "dex": 0,
-          "con": 0,
-          "int": 0,
-          "wis": 0,
-          "cha": 0
+          "str": {
+            "value": 0
+          },
+          "dex": {
+            "value": 0
+          },
+          "con": {
+            "value": 0
+          },
+          "int": {
+            "value": 0
+          },
+          "wis": {
+            "value": 0
+          },
+          "cha": {
+            "value": 0
+          }
         },
         "movement": {
           "combat": 40,

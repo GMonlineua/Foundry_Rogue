@@ -178,6 +178,12 @@ nav.sheet-tabs {
 .sheet-body {
   .tab.general {
     .inventory {
+      .load {
+        position: absolute;
+        top: 6px;
+        right: 90px;
+      }
+
       .create-item {
         position: absolute;
         top: 0;
