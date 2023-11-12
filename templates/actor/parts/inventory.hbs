@@ -1,12 +1,14 @@
 <div class="item-block inventory">
   <div class="block-header">
     <h2>{{localize 'ROGUE.Inventory'}}</h2>
-    <div class="load">
-      <span>{{#load system.slots}}{{/load}}</span>
-      <span>({{system.slots.used}}</span>
-      <span>/</span>
-      <span>{{system.slots.max}})</span>
-    </div>
+    {{#if system.slots}}
+      <div class="load">
+        <span>{{#load system.slots}}{{/load}}</span>
+        <span>({{system.slots.used}}</span>
+        <span>/</span>
+        <span>{{system.slots.max}})</span>
+      </div>
+    {{/if}}
     <div class="create-item">
       <button class="drop-btn"><i class="fas fa-plus"></i>{{localize 'ROGUE.ItemAdd'}}</button>
       <div class="drop-content">
