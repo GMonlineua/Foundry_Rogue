@@ -1,11 +1,19 @@
 <div class="item-block spells">
   <div class="block-header">
     <h2>{{localize 'ROGUE.Spells'}}</h2>
+    {{#if system.preparedSpellsMax}}
+      <div class="prepared-spells">
+        <span>{{localize 'ROGUE.SpellPrepared'}}:</span>
+        <span>{{system.preparedSpells}}</span>
+        <span>/</span>
+        <span>{{system.preparedSpellsMax}}</span>
+      </div>
+    {{/if}}
     <a class="item-add item-create" title="{{localize 'ROGUE.CreateSpell'}}" data-type="spell"><i class="fas fa-plus"></i>{{localize 'ROGUE.ItemAdd'}}</a>
   </div>
   <ol class="items-list">
     {{#each spell as |item id|}}
-      <li class="item flexrow" data-item-id="{{item._id}}">
+      <li class="item flexrow spell{{#spellClass system}}{{/spellClass}}" data-item-id="{{item._id}}">
         <div class="item-name">
           <a class="item-image rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
           <h4>{{item.name}}</h4>

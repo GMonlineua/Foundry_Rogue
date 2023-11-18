@@ -18,6 +18,7 @@ export class RogueActor extends Actor {
     for (let [key, ability] of Object.entries(systemData.abilities)) {
       ability.defense = 10 + ability.value;
     }
+    systemData.armor.defense = 10 + systemData.armor.value
 
     if (actorData.type == 'character') this._prepareCharacterData(actorData);
 
@@ -52,7 +53,7 @@ export class RogueActor extends Actor {
     }
 
     // Inventory slots
-    systemData.slots.max = systemData.abilities.con.value + 10;
+    systemData.slots.max = systemData.abilities.con.defense;
     let used = 0;
     for (let i of actorData.items) {
       if (i.system.slots) {
@@ -61,5 +62,15 @@ export class RogueActor extends Actor {
     }
     systemData.slots.used = used;
     systemData.slots.free = systemData.slots.max - systemData.slots.used;
+
+    // Prepared spells
+    systemData.preparedSpellsMax = systemData.level;
+    let prepared = 0;
+    for (let i of actorData.items) {
+      if (i.system.prepared) {
+        prepared += 1;
+      }
+    }
+    systemData.preparedSpells = prepared;
   }
 }

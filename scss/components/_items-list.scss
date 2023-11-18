@@ -74,3 +74,19 @@
     margin-right: 3px;
   }
 }
+
+.spells {
+  li.spell.prepared {
+    .item-name {
+      h4 {
+        font-weight: bold;
+      }
+    }
+  }
+
+  li.spell.blocked {
+    .item-name {
+      text-decoration: line-through;
+    }
+  }
+}

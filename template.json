@@ -8,7 +8,9 @@
           "value": 5,
           "max": 5
         },
-        "defense": 0,
+        "armor": {
+          "value": 0
+        },
         "abilities": {
           "str": {
             "value": 0

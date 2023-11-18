@@ -97,7 +97,7 @@
 }
 
 .npc {
-  .defense {
+  .armor {
     position: absolute;
     top: 0;
     right: 10px;
@@ -128,7 +128,7 @@
 .after-header {
   max-height: 55px;
 
-  .defense {
+  .armor {
     flex: 1;
   }
 
@@ -223,6 +223,12 @@ nav.sheet-tabs {
     }
 
     .spells {
+      .prepared-spells {
+        position: absolute;
+        top: 6px;
+        right: 90px;
+      }
+
       ol.items-list {
         columns: 2;
         -webkit-columns: 2;

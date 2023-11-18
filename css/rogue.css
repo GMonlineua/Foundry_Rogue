@@ -351,7 +351,7 @@ input.clear-input:focus {
   display: block;
   margin: auto;
 }
-.rogue .npc .defense {
+.rogue .npc .armor {
   position: absolute;
   top: 0;
   right: 10px;
@@ -360,11 +360,11 @@ input.clear-input:focus {
   padding-top: 10px;
   text-align: center;
 }
-.rogue .npc .defense label, .rogue .npc .defense div {
+.rogue .npc .armor label, .rogue .npc .armor div {
   display: block;
   margin: auto;
 }
-.rogue .npc .defense .plus {
+.rogue .npc .armor .plus {
   position: relative;
   right: -10px;
 }
@@ -377,7 +377,7 @@ input.clear-input:focus {
 .rogue .after-header {
   max-height: 55px;
 }
-.rogue .after-header .defense {
+.rogue .after-header .armor {
   flex: 1;
 }
 .rogue .after-header .movement {
@@ -446,6 +446,11 @@ input.clear-input:focus {
 .rogue .sheet-body .tab.general .inventory .create-item:hover .drop-content {
   display: block;
   background: url(../ui/parchment.jpg) repeat;
+}
+.rogue .sheet-body .tab.general .spells .prepared-spells {
+  position: absolute;
+  top: 6px;
+  right: 90px;
 }
 .rogue .sheet-body .tab.general .spells ol.items-list {
   columns: 2;
@@ -616,6 +621,12 @@ input.clear-input:focus {
 }
 .rogue .drop-content .fa-plus {
   margin-right: 3px;
+}
+.rogue .spells li.spell.prepared .item-name h4 {
+  font-weight: bold;
+}
+.rogue .spells li.spell.blocked .item-name {
+  text-decoration: line-through;
 }
 .rogue .limited-sheet {
   flex: 0 auto;

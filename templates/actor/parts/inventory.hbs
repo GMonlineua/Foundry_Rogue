@@ -3,10 +3,10 @@
     <h2>{{localize 'ROGUE.Inventory'}}</h2>
     {{#if system.slots}}
       <div class="load">
-        <span>{{#load system.slots}}{{/load}}</span>
-        <span>({{system.slots.used}}</span>
+        <span>{{#load system.slots}}{{/load}}:</span>
+        <span>{{system.slots.used}}</span>
         <span>/</span>
-        <span>{{system.slots.max}})</span>
+        <span>{{system.slots.max}}</span>
       </div>
     {{/if}}
     <div class="create-item">

@@ -46,10 +46,6 @@ Hooks.on("renderChatMessage", renderChatMessage);
 /*  Handlebars Helpers                          */
 /* -------------------------------------------- */
 
-Handlebars.registerHelper("ability", function(modifier) {
-  return 10+modifier;
-});
-
 Handlebars.registerHelper("load", function(data) {
   let load = game.i18n.localize("ROGUE.Unloaded");
   if (data.free >= 5) {
@@ -65,3 +61,21 @@ Handlebars.registerHelper("load", function(data) {
   }
   return load;
 });
+
+Handlebars.registerHelper("spellClass", function(data) {
+  const conditions = [
+    { condition: data.prepared, className: "prepared" },
+    { condition: data.blocked, className: "blocked" }
+  ];
+
+  let spellClass = "";
+
+  conditions.forEach(({ condition, className }) => {
+    if (condition) {
+      spellClass += ` ${className}`;
+    }
+  });
+
+  return spellClass;
+});
+

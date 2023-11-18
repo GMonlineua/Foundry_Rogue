@@ -15,9 +15,9 @@
 
     <div class="header-fields">
       <h1 class="charname"><input class="clear-input" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'ROGUE.ActorName'}}"/></h1>
-      <div class="resource defense">
-        <label for="system.defense" class="resource-label">{{localize 'ROGUE.Armor'}} <span>({{#ability system.defense}}{{/ability}})</span></label>
-        <input class="clear-input" type="number" name="system.defense" value="{{system.defense}}" data-dtype="Number"/>
+      <div class="resource armor">
+        <label for="system.armor.value" class="resource-label">{{localize 'ROGUE.Armor'}} <span>({{system.armor.defense}})</span></label>
+        <input class="clear-input" type="number" name="system.armor.value" value="{{system.armor.value}}" data-dtype="Number"/>
       </div>
       <h3>{{localize 'ROGUE.AddDescription'}}:<input class="clear-input" name="system.background" type="text" value="{{system.background}}" data-dtype="String"/></h3>
 
@@ -42,6 +42,7 @@
     {{!-- Owned Narrative Tab --}}
     <div class="tab general">
       {{> "systems/rogue/templates/actor/parts/inventory.hbs"}}
+      {{> "systems/rogue/templates/actor/parts/spells.hbs"}}
       {{> "systems/rogue/templates/actor/parts/notes.hbs"}}
     </div>
 
