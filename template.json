@@ -70,17 +70,17 @@
     "loot": {
       "templates": ["base", "gear"]
     },
-    "weapon": {
-      "templates": ["base", "gear"],
-      "damage": "1d6",
-      "type": "one-handed"
-    },
     "protection": {
       "templates":["base", "gear"],
       "defense": {
         "type": "bonus",
         "value": 1
       }
+    },
+    "weapon": {
+      "templates": ["base", "gear"],
+      "damage": "1d6",
+      "type": "one-handed"
     },
     "spell": {
       "templates": ["base"],

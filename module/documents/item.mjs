@@ -20,6 +20,30 @@ export class RogueItem extends Item {
   }
 
   /**
+   * Handle clickable show description.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async show() {
+    const item = this;
+
+    // Initialize chat data.
+    const name = item.name;
+    const description = item.system.description;
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    const rollMode = game.settings.get('core', 'rollMode');
+
+    ChatMessage.create({
+      speaker: speaker,
+      rollMode: rollMode,
+      content: `
+      <h3 class="name">${name}</h3>
+      <div class="description">${description}</div>
+      `
+    });
+  }
+
+  /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
    * @private
@@ -28,34 +52,30 @@ export class RogueItem extends Item {
     const item = this;
 
     // Initialize chat data.
+    const name = item.name;
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
-    const label = `[${item.type}] ${item.name}`;
+    const type = item.type;
 
-    // If there's no roll data, send a chat message.
-    if (!this.system.formula) {
-      ChatMessage.create({
-        speaker: speaker,
-        rollMode: rollMode,
-        flavor: label,
-        content: item.system.description ?? ''
-      });
-    }
-    // Otherwise, create a roll and send a chat message from it.
-    else {
-      // Retrieve roll data.
+    if (type == 'weapon') {
       const rollData = this.getRollData();
-
-      // Invoke the roll and submit it to chat.
-      const roll = new Roll(rollData.item.formula, rollData);
-      // If you need to store the value first, uncomment the next line.
-      // let result = await roll.roll({async: true});
+      const roll = new Roll(rollData.item.damage, rollData);
       roll.toMessage({
         speaker: speaker,
+        flavor: name,
         rollMode: rollMode,
-        flavor: label,
       });
-      return roll;
+    } else if (type == 'spell') {
+      const rollData = this.getRollData();
+      const int = rollData.abilities.int.value
+      const roll = new Roll("1d20 + @int", { int });
+      roll.toMessage({
+        speaker: speaker,
+        flavor: name,
+        rollMode: rollMode,
+      });
+    } else {
+      item.show();
     }
   }
 }

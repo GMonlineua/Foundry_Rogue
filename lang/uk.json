@@ -70,6 +70,7 @@
 
     "Weapon": "Зброя",
     "CreateWeapon": "Створити Зброю",
+    "Damage": "Пошкодженняф",
     "DamageDice": "КП",
     "WeaponType": "Тип",
     "OneHanded": "Одноручне",
@@ -100,6 +101,7 @@
 
     "AbilityCheck": "Перевірка Характеристики",
 
+    "ItemShow": "Показати",
     "ItemAdd": "Додати",
     "ItemDelete": "Вмдалити",
     "ItemEdit": "Редагувати",

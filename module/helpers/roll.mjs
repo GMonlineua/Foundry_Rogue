@@ -47,45 +47,47 @@ function getTestData(type, note, sheet) {
       rollName: `${game.i18n.localize("ROGUE.AbilityCheck")}: ${game.i18n.localize(CONFIG.ROGUE.abilities[note])}`,
       rollFunction: abilityCheck,
       rollData: sheet.object.system.abilities[note].value
-    },
-    default: {
-      rollName: game.i18n.localize("ROGUE.Roll"),
-      rollFunction: roll
-    },
+    }
   };
 
-  return testData[type] || testData.default;
+  return testData[type];
 }
 
-function abilityCheck(rollName, rollData, data, sheet) {
-  const speaker = ChatMessage.getSpeaker({ actor: sheet.actor });
-  const modifier = data.modifier;
+function abilityCheck(rollName, bonus, data, sheet) {
+  const rollData = {
+    name: rollName,
+    speaker: ChatMessage.getSpeaker({ actor: sheet.actor }),
+    formula: "",
+    modifier: bonus,
+    difficulty: 15
+  }
+  rollData.modifier += data.modifier;
 
   const advantage = data.advantage;
-  let formula;
   if (advantage == "advantage") {
-    formula = "2d20kh+@rollData+@modifier";
+    rollData.formula = "2d20kh+@modifier";
   } else if (advantage == "disadvantage") {
-    formula = "2d20kl+@rollData+@modifier";
+    rollData.formula = "2d20kl+@modifier";
   } else {
-    formula = "1d20+@rollData+@modifier";
+    rollData.formula = "1d20+@modifier";
   }
 
-  const roll = new Roll(formula, { rollData, modifier });
+  if (data.opposition) {
+    rollData.difficulty = data.difficulty;
+  }
 
-  roll.toMessage({
-    speaker: speaker,
-    flavor: rollName,
-    rollMode: game.settings.get('core', 'rollMode'),
-  });
+  roll(rollData);
 }
 
-function roll(rollName, rollData, data, sheet) {
-  const speaker = ChatMessage.getSpeaker({ actor: sheet.actor });
-  const roll = new Roll("1d20", sheet.actor.getRollData());
+async function roll(rollData) {
+  const modifier = rollData.modifier
+  const roll = new Roll(rollData.formula, { modifier });
+  await roll.evaluate();
+  rollData.success = roll.total >= rollData.difficulty;
+
   roll.toMessage({
-    speaker: speaker,
-    flavor: rollName,
+    speaker: rollData.speaker,
+    flavor: rollData.name,
     rollMode: game.settings.get('core', 'rollMode'),
   });
 }

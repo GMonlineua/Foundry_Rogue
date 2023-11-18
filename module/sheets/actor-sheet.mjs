@@ -188,6 +188,10 @@ export class RogueActorSheet extends ActorSheet
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
+      } else if (dataset.rollType == 'show') {
+        const itemId = element.closest('.item').dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        if (item) return item.show();
       } else {
         createRollDialog(dataset.rollType, dataset.rollNote, this);
       }
