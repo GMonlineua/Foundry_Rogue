@@ -19,7 +19,7 @@
         <label for="system.armor.value" class="resource-label">{{localize 'ROGUE.Armor'}} <span>({{system.armor.defense}})</span></label>
         <input class="clear-input" type="number" name="system.armor.value" value="{{system.armor.value}}" data-dtype="Number"/>
       </div>
-      <h3>{{localize 'ROGUE.AddDescription'}}:<input class="clear-input" name="system.background" type="text" value="{{system.background}}" data-dtype="String"/></h3>
+      <h3 class="add-description"><input class="clear-input" name="system.background" type="text" value="{{system.background}}" data-dtype="String" placeholder="{{localize 'ROGUE.AddDescription'}}"/></h3>
 
       {{> "systems/rogue/templates/actor/parts/abilities.hbs"}}
     </div>

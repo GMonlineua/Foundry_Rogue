@@ -123,6 +123,14 @@
     padding-top: 5px;
     text-transform: uppercase;
   }
+
+  .add-description {
+    font-size: normal;
+
+    input {
+      width: 100%;
+    }
+  }
 }
 
 .after-header {

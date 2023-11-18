@@ -374,6 +374,12 @@ input.clear-input:focus {
   padding-top: 5px;
   text-transform: uppercase;
 }
+.rogue .npc .add-description {
+  font-size: normal;
+}
+.rogue .npc .add-description input {
+  width: 100%;
+}
 .rogue .after-header {
   max-height: 55px;
 }
