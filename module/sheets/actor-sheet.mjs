@@ -193,7 +193,7 @@ export class RogueActorSheet extends ActorSheet
         const item = this.actor.items.get(itemId);
         if (item) return item.show();
       } else {
-        createRollDialog(dataset.rollType, dataset.rollNote, this);
+        createRollDialog(dataset.rollType, this, dataset.rollNote);
       }
     }
 

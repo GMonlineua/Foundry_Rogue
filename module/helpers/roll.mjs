@@ -1,34 +1,39 @@
-export async function createRollDialog(type, note, sheet) {
-  const { rollName, rollFunction, rollData, templateData } = getTestData(type, note, sheet);
+export async function createRollDialog(type, sheet, note) {
+  const { rollName, rollFunction, needDialog, templateData } = getTestData(type, sheet, note);
   const html = await renderTemplate("systems/rogue/templates/apps/rollDialog.hbs", templateData);
-  const dialog = new Dialog({
-    title: rollName,
-    content: html,
-    buttons: {
-      roll: {
-        label: game.i18n.localize("ROGUE.Roll"),
-        icon: '<i class="fas fa-dice"></i>',
-        callback: async (html) => {
-          try {
-            const formData = new FormData(html[0].querySelector("form"));
-            const data = toIntData(Object.fromEntries(formData.entries()));
 
-            await rollFunction(rollName, rollData, data, sheet);
-          } catch (error) {
-            console.error("Error submit in roll dialog:", error);
-          }
+  if (needDialog) {
+    const dialog = new Dialog({
+      title: rollName,
+      content: html,
+      buttons: {
+        roll: {
+          label: game.i18n.localize("ROGUE.Roll"),
+          icon: '<i class="fas fa-dice"></i>',
+          callback: async (html) => {
+            try {
+              const formData = new FormData(html[0].querySelector("form"));
+              const data = toIntData(Object.fromEntries(formData.entries()));
+
+              await rollFunction(rollName, data, sheet, note);
+            } catch (error) {
+              console.error("Error submit in roll dialog:", error);
+            }
+          },
+        },
+        cancel: {
+          icon: '<i class="fas fa-times"></i>',
+          label: game.i18n.localize("ROGUE.RollCancel"),
+          callback: () => {},
         },
       },
-      cancel: {
-        icon: '<i class="fas fa-times"></i>',
-        label: game.i18n.localize("ROGUE.RollCancel"),
-        callback: () => {},
-      },
-    },
-    default: "roll",
-    close: () => {},
-  });
-  dialog.render(true);
+      default: "roll",
+      close: () => {},
+    });
+    dialog.render(true);
+  } else {
+    await rollFunction(rollName, sheet, note);
+  }
 }
 
 function toIntData(data) {
@@ -41,24 +46,29 @@ function toIntData(data) {
   return data;
 }
 
-function getTestData(type, note, sheet) {
+function getTestData(type, sheet, note) {
   const testData = {
     abilityCheck: {
       rollName: `${game.i18n.localize("ROGUE.AbilityCheck")}: ${game.i18n.localize(CONFIG.ROGUE.abilities[note])}`,
       rollFunction: abilityCheck,
-      rollData: sheet.object.system.abilities[note].value
+      needDialog: true
+    },
+    moraleCheck: {
+      rollName: game.i18n.localize("ROGUE.MoraleCheck"),
+      rollFunction: moraleCheck,
+      needDialog: false
     }
   };
 
   return testData[type];
 }
 
-function abilityCheck(rollName, bonus, data, sheet) {
+function abilityCheck(rollName, data, sheet, note) {
   const rollData = {
     name: rollName,
     speaker: ChatMessage.getSpeaker({ actor: sheet.actor }),
     formula: "",
-    modifier: bonus,
+    modifier: sheet.object.system.abilities[note].value,
     difficulty: 15
   }
   rollData.modifier += data.modifier;
@@ -74,6 +84,17 @@ function abilityCheck(rollName, bonus, data, sheet) {
 
   if (data.opposition) {
     rollData.difficulty = data.difficulty;
+  }
+
+  roll(rollData);
+}
+
+function moraleCheck(rollName, sheet) {
+  const rollData = {
+    name: rollName,
+    speaker: ChatMessage.getSpeaker({ actor: sheet.actor }),
+    formula: "2d6",
+    difficulty: sheet.object.system.morale
   }
 
   roll(rollData);

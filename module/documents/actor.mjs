@@ -73,4 +73,34 @@ export class RogueActor extends Actor {
     }
     systemData.preparedSpells = prepared;
   }
+
+  // Set default token parameters
+  async _preCreate(data, options, userId) {
+    await super._preCreate(data, options, userId)
+    console.log("precreateVersion:", this.prototypeToken);
+    let prototypeToken = {
+      appendNumber: true,
+      displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,
+      displayBars: CONST.TOKEN_DISPLAY_MODES.OWNER,
+      disposition: CONST.TOKEN_DISPOSITIONS.SECRET,
+      sight: {
+        enabled: true
+      }
+    }
+
+    if (data.type === 'character') {
+      prototypeToken = {
+        actorLink: true,
+        displayName: CONST.TOKEN_DISPLAY_MODES.ALWAYS,
+        displayBars: CONST.TOKEN_DISPLAY_MODES.ALWAYS,
+        disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY,
+        sight: {
+          enabled: true
+        }
+      }
+    }
+
+    console.log(prototypeToken);
+    return this.updateSource({prototypeToken});
+  }
 }

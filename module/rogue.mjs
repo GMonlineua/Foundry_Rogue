@@ -27,6 +27,17 @@ Hooks.once('init', async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("rogue", RogueItemSheet, { makeDefault: true });
 
+  // Custom buners
+  CONFIG.Actor.compendiumBanner = "systems/rogue/ui/actor-banner.jpg";
+  CONFIG.Adventure.compendiumBanner = "systems/rogue/ui/adventure-banner.jpg";
+  CONFIG.Card.compendiumBanner = "systems/rogue/ui/card-banner.jpg";
+  CONFIG.JournalEntry.compendiumBanner = "systems/rogue/ui/journalentry-banner.jpg";
+  CONFIG.Item.compendiumBanner = "systems/rogue/ui/item-banner.jpg";
+  CONFIG.Macro.compendiumBanner = "systems/rogue/ui/macro-banner.jpg";
+  CONFIG.Playlist.compendiumBanner = "systems/rogue/ui/playlist-banner.jpg";
+  CONFIG.RollTable.compendiumBanner = "systems/rogue/ui/rolltable-banner.jpg";
+  CONFIG.Scene.compendiumBanner = "systems/rogue/ui/scene-banner.jpg";
+
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
 });
@@ -41,6 +52,7 @@ Hooks.on("preCreateChatMessage", preprocessChatMessage);
 
 // Render chat message hook
 Hooks.on("renderChatMessage", renderChatMessage);
+
 
 /* -------------------------------------------- */
 /*  Handlebars Helpers                          */

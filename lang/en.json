@@ -52,6 +52,11 @@
 
     "Inventory": "Спорядження",
     "Slots": "Комірки",
+    "Unloaded": "Ненавантажений",
+    "LightlyLoaded": "Легко Навантажений",
+    "HeavilyLoaded": "Важко Навантажений",
+    "Overloaded": "Перенавантажений",
+    "MoveBlocked": "Не Може Рухатись",
     "Price": "Ціна",
 
     "Loot": "Предмет",
@@ -65,6 +70,7 @@
 
     "Weapon": "Зброя",
     "CreateWeapon": "Створити Зброю",
+    "Damage": "Пошкодженняф",
     "DamageDice": "КП",
     "WeaponType": "Тип",
     "OneHanded": "Одноручне",
@@ -81,6 +87,22 @@
     "Notes": "Нотатки",
     "Description": "Опис",
 
+    "Morale": "Бойовий Дух",
+    "AddDescription": "Особливість",
+
+    "Roll": "Кидок",
+    "RollCancel": "Скасувати",
+    "NoneAdvantage": "Звичайний Кидок",
+    "Advantage": "Перевага",
+    "Disadvantage": "Завада",
+    "OppositionRoll": "Протистояння",
+    "Difficulty": "Складність",
+    "Modifier": "Модифікатор",
+
+    "AbilityCheck": "Перевірка Характеристики",
+    "MoraleCheck": "Перевірка Бойового Духу",
+
+    "ItemShow": "Показати",
     "ItemAdd": "Додати",
     "ItemDelete": "Вмдалити",
     "ItemEdit": "Редагувати",
