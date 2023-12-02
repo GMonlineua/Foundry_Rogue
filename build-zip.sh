@@ -5,7 +5,7 @@ if [ -f "system.json" ]; then
 
     if [ "$version" != "null" ]; then
         zip_filename="version-$version.zip"
-        zip -r $zip_filename css lang module packs templates ui system.json template.json
+        zip -r $zip_filename css lang module icons packs templates ui system.json template.json
 
         echo "Zip file $zip_filename.zip created successfully."
     else

@@ -2,35 +2,76 @@
   <div class="block-header">
     <h2>{{localize 'ROGUE.Inventory'}}</h2>
     {{#if system.slots}}
-      <div class="load">
-        <span>{{#load system.slots}}{{/load}}:</span>
-        <span>{{system.slots.used}}</span>
-        <span>/</span>
-        <span>{{system.slots.max}}</span>
+      <div class="inventory-info">
+        <span class="silver-coins">
+          <label for="system.sc" title="{{localize 'ROGUE.Coins.Info'}}">{{localize 'ROGUE.Coins.SC'}}:</label>
+          <input class="clear-input" type="number" name="system.sc" value="{{system.sc}}" data-dtype="Number"/>
+        </span>
+        <span class="load">
+          <span>{{#load system.slots}}{{/load}}:</span>
+          <span>{{system.slots.used}}</span>
+          <span>/</span>
+          <span>{{system.slots.max}}</span>
+        </span>
       </div>
     {{/if}}
-    <div class="create-item">
-      <button class="drop-btn"><i class="fas fa-plus"></i>{{localize 'ROGUE.ItemAdd'}}</button>
-      <div class="drop-content">
-        <a class="item-add item-create" data-type="loot"><i class="fas fa-plus"></i>{{localize 'ROGUE.CreateLoot'}}</a>
-        <a class="item-add item-create" data-type="protection"><i class="fas fa-plus"></i>{{localize 'ROGUE.CreateProtection'}}</a>
-        <a class="item-add item-create" data-type="weapon"><i class="fas fa-plus"></i>{{localize 'ROGUE.CreateWeapon'}}</a>
-      </div>
-    </div>
   </div>
-  <ol class="items-list">
-    {{#each gear as |item id|}}
-      <li class="item flexrow" data-item-id="{{item._id}}">
-        <div class="item-name">
-          <a class="item-image rollable" data-roll-type="item"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
-          <h4>{{item.name}}</h4>
-        </div>
-        <div class="item-controls">
-          <a class="item-control rollable" data-roll-type="show" title="{{localize 'ROGUE.ItemShow'}}"><i class="fa fa-comment"></i></a>
-          <a class="item-control item-edit" title="{{localize 'ROGUE.ItemEdit'}}"><i class="fas fa-edit"></i></a>
-          <a class="item-control item-delete" title="{{localize 'ROGUE.ItemDelete'}}"><i class="fas fa-trash"></i></a>
-        </div>
-      </li>
-    {{/each}}
-  </ol>
+  <div class="weapon">
+    <div class="item-header">
+      <h3>{{localize 'TYPES.Item.weapon'}}</h3>
+      <a class="item-add item-create" title="{{localize 'ROGUE.CreateWeapon'}}" data-type="weapon"><i class="fas fa-plus"></i>{{localize 'ROGUE.ItemAdd'}}</a>
+    </div>
+    <ol class="items-list">
+      {{#each weapon as |item id|}}
+        <li class="item flexrow {{item.type}} {{#gear-weight item.system.slots}}{{/gear-weight}}" data-item-id="{{item._id}}">
+          <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
+          <h4 class="item-name">{{item.name}}</h4>
+          {{> "systems/rogue/templates/actor/parts/item-summary.hbs" item=item}}
+          <div class="item-controls">
+            <a class="item-control rollable" data-roll-type="show" title="{{localize 'ROGUE.ItemShow'}}"><i class="fa fa-comment"></i></a>
+            <a class="item-control item-edit" title="{{localize 'ROGUE.ItemEdit'}}"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{localize 'ROGUE.ItemDelete'}}"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+  <div class="protection">
+    <div class="item-header">
+      <h3>{{localize 'TYPES.Item.protection'}}</h3>
+      <a class="item-add item-create" title="{{localize 'ROGUE.CreateWeapon'}}" data-type="protection"><i class="fas fa-plus"></i>{{localize 'ROGUE.ItemAdd'}}</a>
+    </div>
+    <ol class="items-list">
+      {{#each protection as |item id|}}
+        <li class="item flexrow {{item.type}} {{#gear-weight item.system.slots}}{{/gear-weight}}" data-item-id="{{item._id}}">
+          <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
+          <h4 class="item-name">{{item.name}}</h4>
+          {{> "systems/rogue/templates/actor/parts/item-summary.hbs" item=item}}
+          <div class="item-controls">
+            <a class="item-control item-edit" title="{{localize 'ROGUE.ItemEdit'}}"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{localize 'ROGUE.ItemDelete'}}"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+  <div class="loot">
+    <div class="item-header">
+      <h3>{{localize 'TYPES.Item.loot'}}</h3>
+      <a class="item-add item-create" title="{{localize 'ROGUE.CreateWeapon'}}" data-type="loot"><i class="fas fa-plus"></i>{{localize 'ROGUE.ItemAdd'}}</a>
+    </div>
+    <ol class="items-list">
+      {{#each loot as |item id|}}
+        <li class="item flexrow {{item.type}} {{#gear-weight item.system.slots}}{{/gear-weight}}" data-item-id="{{item._id}}">
+          <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
+          <h4 class="item-name">{{item.name}}</h4>
+          {{> "systems/rogue/templates/actor/parts/item-summary.hbs" item=item}}
+          <div class="item-controls">
+            <a class="item-control item-edit" title="{{localize 'ROGUE.ItemEdit'}}"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{localize 'ROGUE.ItemDelete'}}"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  </div>
 </div>

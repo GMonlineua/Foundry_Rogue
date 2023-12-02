@@ -57,20 +57,30 @@ function getTestData(type, sheet, note) {
       rollName: game.i18n.localize("ROGUE.MoraleCheck"),
       rollFunction: moraleCheck,
       needDialog: false
+    },
+    weapon: {
+      rollName: sheet.name,
+      rollFunction: weaponRoll,
+      needDialog: true
+    },
+    spell: {
+      rollName: sheet.name,
+      rollFunction: spellRoll,
+      needDialog: true
     }
   };
 
   return testData[type];
 }
 
-function abilityCheck(rollName, data, sheet, note) {
+async function abilityCheck(rollName, data, sheet, note) {
   const rollData = {
     name: rollName,
-    speaker: ChatMessage.getSpeaker({ actor: sheet.actor }),
+    speaker: ChatMessage.getSpeaker({ actor: sheet }),
     formula: "",
-    modifier: sheet.object.system.abilities[note].value,
-    difficulty: 15
-  }
+    modifier: sheet.system.abilities[note].value,
+    difficulty: 15,
+  };
   rollData.modifier += data.modifier;
 
   const advantage = data.advantage;
@@ -86,15 +96,18 @@ function abilityCheck(rollName, data, sheet, note) {
     rollData.difficulty = data.difficulty;
   }
 
-  roll(rollData);
+  await roll(rollData);
+
+  return rollData;
 }
+
 
 function moraleCheck(rollName, sheet) {
   const rollData = {
     name: rollName,
-    speaker: ChatMessage.getSpeaker({ actor: sheet.actor }),
+    speaker: ChatMessage.getSpeaker({ actor: sheet }),
     formula: "2d6",
-    difficulty: sheet.object.system.morale
+    difficulty: sheet.system.morale
   }
 
   roll(rollData);
@@ -104,6 +117,7 @@ async function roll(rollData) {
   const modifier = rollData.modifier
   const roll = new Roll(rollData.formula, { modifier });
   await roll.evaluate();
+  rollData.result = roll.total;
   rollData.success = roll.total >= rollData.difficulty;
 
   roll.toMessage({
@@ -111,4 +125,21 @@ async function roll(rollData) {
     flavor: rollData.name,
     rollMode: game.settings.get('core', 'rollMode'),
   });
+
+  return rollData
+}
+
+async function weaponRoll(rollName, data, sheet) {
+  const ability = sheet.system.ability;
+  const rollData = await abilityCheck(rollName, data, sheet.actor, ability);
+  if (rollData.success) {
+    sheet.roll();
+  }
+}
+
+async function spellRoll(rollName, data, sheet) {
+  const rollData = await abilityCheck(rollName, data, sheet.actor, "int");
+  if (rollData.success) {
+    sheet.roll();
+  }
 }

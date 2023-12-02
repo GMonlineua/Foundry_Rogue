@@ -76,15 +76,25 @@ export class RogueActorSheet extends ActorSheet
    */
   _prepareItems(context) {
     // Initialize containers.
-    const gear = [];
+    const loot = [];
+    const protection = [];
+    const weapon = [];
     const spell = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
-      // Append to gear.
-      if (i.type === 'loot' || i.type === 'protection' || i.type === 'weapon') {
-        gear.push(i);
+      // Append to loot.
+      if (i.type === 'loot') {
+        loot.push(i);
+      }
+      // Append to protection bonus.
+      else if (i.type === 'protection') {
+        protection.push(i);
+      }
+      // Append to weapon bonus.
+      else if (i.type === 'weapon') {
+        weapon.push(i);
       }
       // Append to spell bonus.
       else if (i.type === 'spell') {
@@ -93,7 +103,9 @@ export class RogueActorSheet extends ActorSheet
     }
 
     // Assign and return
-    context.gear = gear;
+    context.loot = loot;
+    context.protection = protection;
+    context.weapon = weapon;
     context.spell = spell;
   }
 
@@ -113,13 +125,6 @@ export class RogueActorSheet extends ActorSheet
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      item.sheet.render(true);
-    });
-
-    // view Inventory Item
-    html.find('.item-view').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));        
       item.sheet.render(true);
     });
 
@@ -152,6 +157,7 @@ export class RogueActorSheet extends ActorSheet
    * @param {Event} event   The originating click event
    * @private
    */
+
   _onItemCreate(event)
   {
     event.preventDefault();
@@ -187,13 +193,21 @@ export class RogueActorSheet extends ActorSheet
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
-        if (item) return item.roll();
+        if (item.type == 'weapon' || item.type == 'spell') {
+          createRollDialog(item.type, item);
+        } else {
+          if (item) return item.roll();
+        }
       } else if (dataset.rollType == 'show') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.show();
+      // } else if (dataset.rollType == 'weapon') {
+      //   const itemId = element.closest('.item').dataset.itemId;
+      //   const item = this.actor.items.get(itemId);
+      //   if (item) return createRollDialog(dataset.rollType, item);
       } else {
-        createRollDialog(dataset.rollType, this, dataset.rollNote);
+        createRollDialog(dataset.rollType, this.actor, dataset.rollNote);
       }
     }
 

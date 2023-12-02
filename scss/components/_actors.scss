@@ -173,7 +173,7 @@ nav.sheet-tabs {
   border-bottom: none;
 
   a.item {
-    background-color: rgba(165, 154, 132, 0.3);
+    background-color: $dark-paper;
     text-shadow: none;
   }
 
@@ -186,46 +186,23 @@ nav.sheet-tabs {
 .sheet-body {
   .tab.general {
     .inventory {
-      .load {
+      .inventory-info {
         position: absolute;
         top: 6px;
         right: 90px;
       }
 
-      .create-item {
-        position: absolute;
-        top: 0;
-        right: 0;
-
-        button.drop-btn {
-          border: none;
-          background: none;
-          box-shadow: none;
-        }
-
-        .drop-content {
-          display: none;
-          position: absolute;
-          right: 0;
-          z-index: 1;
-          width: max-content;
-
-          a.item-add {
-            display: block;
-            position: static;
-            padding: 2px;
+      .items-list {
+        .item.heavy {
+          h4 {
+            font-weight: bold;
           }
         }
-      }
 
-      .create-item:hover {
-        .drop-btn {
-          text-shadow: 0 0 8px red;
-        }
-
-        .drop-content {
-          display: block;
-          background: url(../ui/parchment.jpg) repeat;
+        .item.light {
+          h4 {
+            font-style: italic;
+          }
         }
       }
     }
@@ -235,12 +212,6 @@ nav.sheet-tabs {
         position: absolute;
         top: 6px;
         right: 90px;
-      }
-
-      ol.items-list {
-        columns: 2;
-        -webkit-columns: 2;
-        -moz-columns: 2;
       }
     }
   }
@@ -280,7 +251,7 @@ nav.sheet-tabs {
   }
 
   .item-block {
-    .block-header {
+    .block-header, .item-header {
       position: relative;
 
       a.item-add {

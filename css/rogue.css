@@ -419,49 +419,21 @@ input.clear-input:focus {
   background: none;
   text-shadow: none;
 }
-.rogue .sheet-body .tab.general .inventory .load {
+.rogue .sheet-body .tab.general .inventory .inventory-info {
   position: absolute;
   top: 6px;
   right: 90px;
 }
-.rogue .sheet-body .tab.general .inventory .create-item {
-  position: absolute;
-  top: 0;
-  right: 0;
+.rogue .sheet-body .tab.general .inventory .items-list .item.heavy h4 {
+  font-weight: bold;
 }
-.rogue .sheet-body .tab.general .inventory .create-item button.drop-btn {
-  border: none;
-  background: none;
-  box-shadow: none;
-}
-.rogue .sheet-body .tab.general .inventory .create-item .drop-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-  width: max-content;
-}
-.rogue .sheet-body .tab.general .inventory .create-item .drop-content a.item-add {
-  display: block;
-  position: static;
-  padding: 2px;
-}
-.rogue .sheet-body .tab.general .inventory .create-item:hover .drop-btn {
-  text-shadow: 0 0 8px red;
-}
-.rogue .sheet-body .tab.general .inventory .create-item:hover .drop-content {
-  display: block;
-  background: url(../ui/parchment.jpg) repeat;
+.rogue .sheet-body .tab.general .inventory .items-list .item.light h4 {
+  font-style: italic;
 }
 .rogue .sheet-body .tab.general .spells .prepared-spells {
   position: absolute;
   top: 6px;
   right: 90px;
-}
-.rogue .sheet-body .tab.general .spells ol.items-list {
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
 }
 .rogue .sheet-body .tab.notes {
   font-size: small;
@@ -489,10 +461,10 @@ input.clear-input:focus {
 .rogue .sheet-body .grid {
   gap: 10px;
 }
-.rogue .sheet-body .item-block .block-header {
+.rogue .sheet-body .item-block .block-header, .rogue .sheet-body .item-block .item-header {
   position: relative;
 }
-.rogue .sheet-body .item-block .block-header a.item-add {
+.rogue .sheet-body .item-block .block-header a.item-add, .rogue .sheet-body .item-block .item-header a.item-add {
   position: absolute;
   top: 0;
   right: 0;
@@ -567,7 +539,6 @@ input.clear-input:focus {
   min-height: 200px;
 }
 .rogue .items-list {
-  columns: 2;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -576,33 +547,49 @@ input.clear-input:focus {
 .rogue .items-list .item {
   position: relative;
   align-items: center;
-  background-color: rgba(165, 154, 132, 0.2);
+  background-color: rgba(165, 154, 132, 0.3);
   margin-bottom: 5px;
 }
-.rogue .items-list .item .item-name {
-  color: #191813;
-}
-.rogue .items-list .item .item-name .item-image {
+.rogue .items-list .item .item-image {
   flex: 0 0 30px;
   height: 30px;
-  background-size: 30px;
-  border: none;
+  min-width: 30;
+  background-size: 27px;
+  background-position: center;
+  background-repeat: no-repeat;
   margin-right: 5px;
-  padding: 3px;
+  transition: 0.5s ease;
+}
+.rogue .items-list .item:hover .item-image {
+  background-image: url("/icons/svg/d20-grey.svg") !important;
+}
+.rogue .items-list .item .item-image:hover {
+  background-image: url("/icons/svg/d20-black.svg") !important;
 }
 .rogue .items-list .item .item-name {
   flex: 2;
   margin: 0;
   overflow: hidden;
-  font-size: 13px;
-  text-align: left;
-  align-items: center;
-  display: flex;
+  height: 30px;
+  padding: 6px 0;
+  cursor: pointer;
 }
-.rogue .items-list .item .item-name h3, .rogue .items-list .item .item-name h4 {
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden;
+.rogue .items-list .item .item-name:hover {
+  text-shadow: 0 0 8px red;
+}
+.rogue .items-list .item .item-summary {
+  flex: none;
+  display: none;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding: 5px;
+  border-top: 1px solid #b5b3a4;
+  transition-duration: 3s;
+}
+.rogue .items-list .item .item-name.active + .item-summary {
+  display: block;
+  height: auto;
 }
 .rogue .items-list .item .item-controls {
   position: absolute;
@@ -616,12 +603,6 @@ input.clear-input:focus {
   text-align: center;
   margin: 0 6px;
 }
-.rogue .items-list .item-prop {
-  text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
-}
 .rogue .drop-btn {
   font-family: "Lora", serif;
 }
@@ -633,46 +614,6 @@ input.clear-input:focus {
 }
 .rogue .spells li.spell.blocked .item-name {
   text-decoration: line-through;
-}
-.rogue .limited-sheet {
-  flex: 0 auto;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
-.rogue .limited-sheet img.profile-img {
-  flex: 1;
-  height: 300px;
-  min-width: 300px;
-  padding-right: 10px;
-  border: none;
-}
-.rogue .limited-sheet .limited-info {
-  flex: 2;
-}
-.rogue .limited-sheet .limited-info h1.charname {
-  height: 50px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
-  font-family: "Noto Serif Display", serif;
-  font-weight: 700;
-}
-.rogue .limited-sheet .limited-info h1.charname input {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-.rogue .limited-sheet .general-info {
-  width: 100%;
-}
-.rogue .limited-sheet .editor {
-  min-height: 150px;
-  padding: 0 5px;
-  border: 1px solid var(--color-border-light-primary);
 }
 .rogue .resources {
   margin-bottom: 5px;

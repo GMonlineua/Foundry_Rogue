@@ -74,6 +74,17 @@ Handlebars.registerHelper("load", function(data) {
   return load;
 });
 
+Handlebars.registerHelper("gear-weight", function(slots) {
+  let gearClass = "";
+  if (slots > 1) {
+    gearClass += "heavy"
+  } else if (slots < 1) {
+    gearClass += "light"
+  }
+
+  return gearClass;
+});
+
 Handlebars.registerHelper("spellClass", function(data) {
   const conditions = [
     { condition: data.prepared, className: "prepared" },

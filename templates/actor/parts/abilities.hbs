@@ -1,7 +1,7 @@
 <div class="attributes abilities resources flexrow">
   {{#each system.abilities as |ability key|}}
     <div class="resource">
-      <label for="system.abilities.{{key}}.value" class="resource-label rollable" data-roll-type="abilityCheck" data-roll-note="{{key}}">{{ability.label}}<span>({{ability.defense}})</span></label>
+      <label for="system.abilities.{{key}}.value" class="resource-label rollable" data-roll-type="abilityCheck" data-roll-note="{{key}}" title="{{ability.name}}">{{ability.label}}<span>({{ability.defense}})</span></label>
       <input class="clear-input" type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
     </div>
   {{/each}}

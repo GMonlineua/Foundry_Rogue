@@ -46,6 +46,7 @@
         "value": 0
       },
       "slots": {},
+      "sc": 0,
       "background":"",
       "languages": ""
     },
@@ -56,7 +57,7 @@
     }
   },
   "Item": {
-    "types": ["loot", "weapon", "protection", "spell"],
+    "types": ["loot", "protection", "weapon", "spell"],
     "templates": {
       "base": {
         "name": "",
@@ -79,7 +80,9 @@
     },
     "weapon": {
       "templates": ["base", "gear"],
+      "ability": "str",
       "damage": "1d6",
+      "formula": "",
       "type": "one-handed"
     },
     "spell": {

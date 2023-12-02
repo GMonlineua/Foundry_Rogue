@@ -60,6 +60,7 @@ export class RogueActor extends Actor {
         used += i.system.slots;
       }
     }
+    used += Math.floor(systemData.sc / 30);
     systemData.slots.used = used;
     systemData.slots.free = systemData.slots.max - systemData.slots.used;
 

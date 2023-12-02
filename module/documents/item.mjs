@@ -1,3 +1,4 @@
+//
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -37,7 +38,7 @@ export class RogueItem extends Item {
       speaker: speaker,
       rollMode: rollMode,
       content: `
-      <h3 class="name">${name}</h3>
+      <h4 class="name">${name}</h3>
       <div class="description">${description}</div>
       `
     });
@@ -66,14 +67,7 @@ export class RogueItem extends Item {
         rollMode: rollMode,
       });
     } else if (type == 'spell') {
-      const rollData = this.getRollData();
-      const int = rollData.abilities.int.value
-      const roll = new Roll("1d20 + @int", { int });
-      roll.toMessage({
-        speaker: speaker,
-        flavor: name,
-        rollMode: rollMode,
-      });
+      item.show();
     } else {
       item.show();
     }
