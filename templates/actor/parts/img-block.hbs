@@ -1,0 +1,20 @@
+<div class="img-block">
+  <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+  <div class="rest">
+    <a class="drop-btn rest-option" data-rest-type="OneHour" title="{{localize 'ROGUE.Rest.OneHour'}}" style="background-image: url(/icons/svg/regen.svg)"></a>
+    <div class="drop-content">
+      <a class="rest-option" data-rest-type="FourHour" title="{{localize 'ROGUE.Rest.FourHour'}}" style="background-image: url(/icons/svg/heal.svg)"></a>
+      <a class="rest-option" data-rest-type="Sleep" title="{{localize 'ROGUE.Rest.Sleep'}}" style="background-image: url(/icons/svg/sleep.svg)"></a>
+      <a class="rest-option" data-rest-type="Day" title="{{localize 'ROGUE.Rest.Day'}}" style="background-image: url(/icons/svg/sun.svg)"></a>
+      <a class="rest-option" data-rest-type="Week" title="{{localize 'ROGUE.Rest.Week'}}" style="background-image: url(/icons/svg/clockwork.svg)"></a>
+    </div>
+  </div>
+  <div class=" hp-bar resource">
+    <progress id="system.hp.value" value="{{system.hp.value}}" max="{{system.hp.max}}" title="{{localize 'ROGUE.HP'}}"></progress>
+    <div class="hp-input">
+      <input class="clear-input" type="number" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number"/>
+      <span> / </span>
+      <input class="clear-input" type="number" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number"/>
+    </div>
+  </div>
+</div>

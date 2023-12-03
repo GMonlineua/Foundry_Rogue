@@ -9,15 +9,33 @@
           <label for="system.type" class="resource-label">{{localize 'ROGUE.WeaponType'}}:</label>
           <select name="system.type">
             {{#select system.type}}
-            <option value="one-handed">{{localize 'ROGUE.OneHanded'}}</option>
-            <option value="two-handed">{{localize 'ROGUE.TwoHanded'}}</option>
-            <option value="none">-</option>
+              <option value="one-handed">{{localize 'ROGUE.OneHanded'}}</option>
+              <option value="two-handed">{{localize 'ROGUE.TwoHanded'}}</option>
+              <option value="none">-</option>
             {{/select}}
           </select>
         </div>
         <div class="resource damage">
           <label for="system.damage" class="resource-label">{{localize 'ROGUE.DamageDice'}}:</label>
-          <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="String"/>
+          <select name="system.damage">
+            {{#select system.damage}}
+              <option value="d4">{{localize 'ROGUE.Dice.d4'}}</option>
+              <option value="d6">{{localize 'ROGUE.Dice.d6'}}</option>
+              <option value="d8">{{localize 'ROGUE.Dice.d8'}}</option>
+              <option value="d10">{{localize 'ROGUE.Dice.d10'}}</option>
+              <option value="d12">{{localize 'ROGUE.Dice.d12'}}</option>
+            {{/select}}
+          </select>
+        </div>
+        <div class="resource ability">
+          <label for="system.ability" class="resource-label">{{localize 'ROGUE.Ability'}}:</label>
+          <select name="system.ability">
+            {{#select system.ability}}
+              {{#each item.actor.system.abilities as |ability key|}}
+                <option value="{{key}}">{{localize ability.name}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
         </div>
       </div>
     </div>
@@ -31,5 +49,4 @@
       {{editor enrichedDescription target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
   </section>
-
 </form>

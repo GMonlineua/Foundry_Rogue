@@ -78,7 +78,6 @@ export class RogueActor extends Actor {
   // Set default token parameters
   async _preCreate(data, options, userId) {
     await super._preCreate(data, options, userId)
-    console.log("precreateVersion:", this.prototypeToken);
     let prototypeToken = {
       appendNumber: true,
       displayName: CONST.TOKEN_DISPLAY_MODES.OWNER,

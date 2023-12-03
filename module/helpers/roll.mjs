@@ -49,13 +49,18 @@ function toIntData(data) {
 function getTestData(type, sheet, note) {
   const testData = {
     abilityCheck: {
-      rollName: `${game.i18n.localize("ROGUE.AbilityCheck")}: ${game.i18n.localize(CONFIG.ROGUE.abilities[note])}`,
+      rollName: `${game.i18n.localize("ROGUE.AbilityCheck")}: ${game.i18n.localize(note.split(', ')[1])}`,
       rollFunction: abilityCheck,
       needDialog: true
     },
     moraleCheck: {
       rollName: game.i18n.localize("ROGUE.MoraleCheck"),
       rollFunction: moraleCheck,
+      needDialog: false
+    },
+    restRoll: {
+      rollName: game.i18n.localize("ROGUE.Rest." + note),
+      rollFunction: restRoll,
       needDialog: false
     },
     weapon: {
@@ -74,11 +79,12 @@ function getTestData(type, sheet, note) {
 }
 
 async function abilityCheck(rollName, data, sheet, note) {
+  const ablity = note.split(', ')[0];
   const rollData = {
     name: rollName,
     speaker: ChatMessage.getSpeaker({ actor: sheet }),
     formula: "",
-    modifier: sheet.system.abilities[note].value,
+    modifier: sheet.system.abilities[ablity].value,
     difficulty: 15,
   };
   rollData.modifier += data.modifier;
@@ -111,6 +117,35 @@ function moraleCheck(rollName, sheet) {
   }
 
   roll(rollData);
+}
+
+async function restRoll(rollName, sheet, note) {
+  const rollData = {
+    name: rollName,
+    speaker: ChatMessage.getSpeaker({ actor: sheet })
+  };
+
+  if (note == "FourHour") {
+    rollData.formula = "1d3"
+  } else if (note == "Sleep") {
+    rollData.formula = "1d6"
+  } else if (note == "Day") {
+    rollData.formula = "1d6+@modifier";
+    rollData.modifier = sheet.system.abilities.con.value
+  } else {
+    sheet.update({ "system.hp.value": sheet.system.hp.max });
+  }
+
+  if (rollData.formula) {
+    await roll(rollData);
+    const newHP = sheet.system.hp.value + rollData.result;
+    if (newHP <= sheet.system.hp.max) {
+      sheet.update({ "system.hp.value": newHP });
+    } else {
+      sheet.update({ "system.hp.value": sheet.system.hp.max });
+    }
+  }
+
 }
 
 async function roll(rollData) {

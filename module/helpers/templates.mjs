@@ -5,9 +5,9 @@
  */
  export const preloadHandlebarsTemplates = async function() {
   return loadTemplates([
+    "systems/rogue/templates/actor/parts/img-block.hbs",
     "systems/rogue/templates/actor/parts/abilities.hbs",
     "systems/rogue/templates/actor/parts/inventory.hbs",
-    "systems/rogue/templates/actor/parts/item-summary.hbs",
     "systems/rogue/templates/actor/parts/spells.hbs",
     "systems/rogue/templates/actor/parts/movement.hbs",
     "systems/rogue/templates/actor/parts/notes.hbs",

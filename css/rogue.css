@@ -279,6 +279,7 @@ input.clear-input:focus {
   padding-bottom: 10px;
 }
 .rogue .sheet-header .img-block {
+  position: relative;
   flex: 1;
   min-width: 150px;
   padding-right: 10px;
@@ -287,6 +288,30 @@ input.clear-input:focus {
   height: 100%;
   width: 100%;
   border: none;
+}
+.rogue .sheet-header .img-block .rest {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4px;
+}
+.rogue .sheet-header .img-block .rest .rest-option {
+  display: block;
+  position: static;
+  width: 25px;
+  height: 25px;
+  margin-top: 2px;
+  cursor: pointer;
+  background-size: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.rogue .sheet-header .img-block .rest .drop-content {
+  display: none;
+  z-index: 1;
+}
+.rogue .sheet-header .img-block .rest:hover .drop-content {
+  display: block;
 }
 .rogue .sheet-header .img-block .hp-bar {
   position: relative;
@@ -577,20 +602,6 @@ input.clear-input:focus {
 .rogue .items-list .item .item-name:hover {
   text-shadow: 0 0 8px red;
 }
-.rogue .items-list .item .item-summary {
-  flex: none;
-  display: none;
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  padding: 5px;
-  border-top: 1px solid #b5b3a4;
-  transition-duration: 3s;
-}
-.rogue .items-list .item .item-name.active + .item-summary {
-  display: block;
-  height: auto;
-}
 .rogue .items-list .item .item-controls {
   position: absolute;
   top: 4px;
@@ -602,12 +613,6 @@ input.clear-input:focus {
   font-size: 12px;
   text-align: center;
   margin: 0 6px;
-}
-.rogue .drop-btn {
-  font-family: "Lora", serif;
-}
-.rogue .drop-content .fa-plus {
-  margin-right: 3px;
 }
 .rogue .spells li.spell.prepared .item-name h4 {
   font-weight: bold;

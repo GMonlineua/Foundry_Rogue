@@ -25,7 +25,7 @@ export class RogueItem extends Item {
    * @param {Event} event   The originating click event
    * @private
    */
-  async show() {
+  show() {
     const item = this;
 
     // Initialize chat data.
@@ -49,7 +49,7 @@ export class RogueItem extends Item {
    * @param {Event} event   The originating click event
    * @private
    */
-  async roll() {
+  roll() {
     const item = this;
 
     // Initialize chat data.

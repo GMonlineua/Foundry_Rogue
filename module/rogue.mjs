@@ -5,7 +5,6 @@ import { RogueItem } from "./documents/item.mjs";
 import { RogueItemSheet } from "./sheets/item-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { preprocessChatMessage, renderChatMessage } from "./helpers/chat-portraits.mjs";
-import { ROGUE } from "./helpers/config.mjs";
 
 Hooks.once('init', async function() {
 
@@ -13,9 +12,6 @@ Hooks.once('init', async function() {
     RogueActor,
     RogueItem
   };
-
-  // Add custom constants for configuration.
-  CONFIG.ROGUE = ROGUE;
 
   // Define custom Entity classes
   CONFIG.Actor.documentClass = RogueActor;
@@ -74,7 +70,7 @@ Handlebars.registerHelper("load", function(data) {
   return load;
 });
 
-Handlebars.registerHelper("gear-weight", function(slots) {
+Handlebars.registerHelper("gearWeight", function(slots) {
   let gearClass = "";
   if (slots > 1) {
     gearClass += "heavy"
@@ -102,3 +98,6 @@ Handlebars.registerHelper("spellClass", function(data) {
   return spellClass;
 });
 
+Handlebars.registerHelper("itemTags", function(data) {
+  console.log(data)
+});

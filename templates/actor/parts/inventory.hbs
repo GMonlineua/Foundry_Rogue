@@ -23,10 +23,12 @@
     </div>
     <ol class="items-list">
       {{#each weapon as |item id|}}
-        <li class="item flexrow {{item.type}} {{#gear-weight item.system.slots}}{{/gear-weight}}" data-item-id="{{item._id}}">
+        <li class="item flexrow {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
           <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
           <h4 class="item-name">{{item.name}}</h4>
-          {{> "systems/rogue/templates/actor/parts/item-summary.hbs" item=item}}
+          <div class="item-summary">
+            {{{item.system.description}}}
+          </div>
           <div class="item-controls">
             <a class="item-control rollable" data-roll-type="show" title="{{localize 'ROGUE.ItemShow'}}"><i class="fa fa-comment"></i></a>
             <a class="item-control item-edit" title="{{localize 'ROGUE.ItemEdit'}}"><i class="fas fa-edit"></i></a>
@@ -43,10 +45,12 @@
     </div>
     <ol class="items-list">
       {{#each protection as |item id|}}
-        <li class="item flexrow {{item.type}} {{#gear-weight item.system.slots}}{{/gear-weight}}" data-item-id="{{item._id}}">
+        <li class="item flexrow {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
           <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
           <h4 class="item-name">{{item.name}}</h4>
-          {{> "systems/rogue/templates/actor/parts/item-summary.hbs" item=item}}
+          <div class="item-summary">
+            {{{item.system.description}}}
+          </div>
           <div class="item-controls">
             <a class="item-control item-edit" title="{{localize 'ROGUE.ItemEdit'}}"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="{{localize 'ROGUE.ItemDelete'}}"><i class="fas fa-trash"></i></a>
@@ -62,10 +66,12 @@
     </div>
     <ol class="items-list">
       {{#each loot as |item id|}}
-        <li class="item flexrow {{item.type}} {{#gear-weight item.system.slots}}{{/gear-weight}}" data-item-id="{{item._id}}">
+        <li class="item flexrow {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
           <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
           <h4 class="item-name">{{item.name}}</h4>
-          {{> "systems/rogue/templates/actor/parts/item-summary.hbs" item=item}}
+          <div class="item-summary">
+            {{{item.system.description}}}
+          </div>
           <div class="item-controls">
             <a class="item-control item-edit" title="{{localize 'ROGUE.ItemEdit'}}"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="{{localize 'ROGUE.ItemDelete'}}"><i class="fas fa-trash"></i></a>

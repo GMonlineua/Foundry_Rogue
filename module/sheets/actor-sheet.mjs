@@ -61,10 +61,6 @@ export class RogueActorSheet extends ActorSheet
    */
   _prepareCharacterData(context) {
     // Handle ability scores.
-    for (let [k, i] of Object.entries(context.system.abilities)) {
-      i.label = game.i18n.localize(CONFIG.ROGUE.abilitiesAbbr[k]) ?? k;
-      i.name = game.i18n.localize(CONFIG.ROGUE.abilities[k]) ?? k;
-    }
   }
 
     /**
@@ -148,6 +144,9 @@ export class RogueActorSheet extends ActorSheet
         li.addEventListener("dragstart", handler, false);
       });
     }
+
+    // Rest
+    html.find('.rest-option').click(this._onRest.bind(this));
   }
 
   /* -------------------------------------------- */
@@ -202,10 +201,6 @@ export class RogueActorSheet extends ActorSheet
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.show();
-      // } else if (dataset.rollType == 'weapon') {
-      //   const itemId = element.closest('.item').dataset.itemId;
-      //   const item = this.actor.items.get(itemId);
-      //   if (item) return createRollDialog(dataset.rollType, item);
       } else {
         createRollDialog(dataset.rollType, this.actor, dataset.rollNote);
       }
@@ -217,9 +212,26 @@ export class RogueActorSheet extends ActorSheet
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
+        rollMode: game.settings.get('core', 'rollMode')
       });
       return roll;
+    }
+  }
+
+  _onRest(event) {
+    event.preventDefault();
+    const restType = event.currentTarget.dataset.restType;
+    const actor = this.actor;
+    if (restType) {
+      if (restType == "OneHour") {
+        const newHP = actor.system.hp.value + 1;
+        console.log(newHP, actor.system.hp.max)
+        if (newHP <= actor.system.hp.max) {
+          actor.update({ "system.hp.value": newHP });
+        }
+      } else {
+        createRollDialog("restRoll", actor, restType);
+      }
     }
   }
 }

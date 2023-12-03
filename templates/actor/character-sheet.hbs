@@ -1,17 +1,7 @@
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <div class="img-block">
-      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-      <div class=" hp-bar resource">
-        <progress id="system.hp.value" value="{{system.hp.value}}" max="{{system.hp.max}}" title="{{localize 'ROGUE.HP'}}"></progress>
-        <div class="hp-input">
-          <input class="clear-input" type="number" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number"/>
-          <span> / </span>
-          <input class="clear-input" type="number" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number"/>
-        </div>
-      </div>
-    </div>
+    {{> "systems/rogue/templates/actor/parts/img-block.hbs"}}
 
     <div class="header-fields">
       <h1 class="charname"><input class="clear-input" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'ROGUE.ActorName'}}"/></h1>
