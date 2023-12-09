@@ -48,6 +48,7 @@
           "exploration": 120,
           "journey": 24
         },
+        "exhaustion": 0,
         "description": "",
         "notes": ""
       }

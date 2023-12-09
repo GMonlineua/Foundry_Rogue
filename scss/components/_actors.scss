@@ -49,6 +49,20 @@
       }
     }
 
+    .exhaustion {
+      position: absolute;
+      top: 0;
+      left: 100px;
+      width: 30px;
+      height: 30px;
+      margin: 4px;
+      padding: 4px;
+      background-color: #b5b3a4;
+      border: $border;
+      border-radius: 100%;
+      text-align: center;
+    }
+
     .hp-bar {
       position: relative;
       top: -10px;

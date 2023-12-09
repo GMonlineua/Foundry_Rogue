@@ -16,7 +16,7 @@ export class RogueActor extends Actor {
     const flags = actorData.flags.rogue || {};
 
     for (let [key, ability] of Object.entries(systemData.abilities)) {
-      ability.defense = 10 + ability.value;
+      ability.defense = 10 + ability.value - systemData.exhaustion;
     }
     systemData.armor.defense = 10 + systemData.armor.value
 
@@ -61,7 +61,7 @@ export class RogueActor extends Actor {
       }
     }
     used += Math.floor(systemData.sc / 30);
-    systemData.slots.used = used;
+    systemData.slots.used = used + systemData.exhaustion;
     systemData.slots.free = systemData.slots.max - systemData.slots.used;
 
     // Prepared spells
