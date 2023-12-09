@@ -5,10 +5,6 @@
       <h1 class="item-name"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ROGUE.Spell'}}"/></h1>
       <div class="resources flexrow">
         <div class="resource">
-          <label for="system.level" class="resource-label">{{localize 'ROGUE.SpellLevel'}}:</label>
-          <input type="number" name="system.level" value="{{system.level}}" data-dtype="Number"/>
-        </div>
-        <div class="resource">
           <label for="system.prepared" class="resource-label">{{localize 'ROGUE.SpellPrepared'}}</label>
           <input type="checkbox" name="system.prepared" data-dtype="Boolean" {{#if system.prepared}} checked {{/if}}/>
         </div>

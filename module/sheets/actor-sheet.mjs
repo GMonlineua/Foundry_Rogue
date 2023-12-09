@@ -135,6 +135,18 @@ export class RogueActorSheet extends ActorSheet
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
 
+    // Rollable abilities.
+    html.find('.item-name').click(ev => {
+      const button = ev.currentTarget;
+      const li = button.closest(".item");
+      const summary = li.getElementsByClassName("item-summary")[0];
+      if (summary) {
+        const contentHeight = summary.scrollHeight;
+        summary.style.height = summary.classList.contains("active") ? "0" : `${contentHeight}px`;
+        summary.classList.toggle("active");
+      }
+    });
+
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = ev => this._onDragStart(ev);

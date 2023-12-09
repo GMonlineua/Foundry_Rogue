@@ -17,15 +17,21 @@
     {{/if}}
   </div>
   <div class="weapon">
-    <div class="item-header">
+    <div class="item-header flexrow">
       <h3>{{localize 'TYPES.Item.weapon'}}</h3>
       <a class="item-add item-create" title="{{localize 'ROGUE.CreateWeapon'}}" data-type="weapon"><i class="fas fa-plus"></i>{{localize 'ROGUE.ItemAdd'}}</a>
     </div>
     <ol class="items-list">
       {{#each weapon as |item id|}}
-        <li class="item flexrow {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
-          <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
-          <h4 class="item-name">{{item.name}}</h4>
+        <li class="item {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
+          <div class="item-info flexrow">
+            <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
+            <h4 class="item-name">{{item.name}}</h4>
+            <div class="item-characteristics">
+              <p>{{system.slots}}</p>
+              <p>{{system.damage}}</p>
+            </div>
+          </div>
           <div class="item-summary">
             {{{item.system.description}}}
           </div>
@@ -45,9 +51,15 @@
     </div>
     <ol class="items-list">
       {{#each protection as |item id|}}
-        <li class="item flexrow {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
-          <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
-          <h4 class="item-name">{{item.name}}</h4>
+        <li class="item {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
+          <div class="item-info flexrow">
+            <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
+            <h4 class="item-name">{{item.name}}</h4>
+            <div class="item-characteristics">
+              <p>{{system.slots}}</p>
+              <p>{{system.defense.value}}</p>
+            </div>
+          </div>
           <div class="item-summary">
             {{{item.system.description}}}
           </div>
@@ -66,9 +78,15 @@
     </div>
     <ol class="items-list">
       {{#each loot as |item id|}}
-        <li class="item flexrow {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
-          <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
-          <h4 class="item-name">{{item.name}}</h4>
+        <li class="item {{item.type}} {{#gearWeight item.system.slots}}{{/gearWeight}}" data-item-id="{{item._id}}">
+          <div class="item-info flexrow">
+            <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
+            <h4 class="item-name">{{item.name}}</h4>
+            <div class="item-characteristics">
+              <p>{{system.slots}}</p>
+              <p>{{system.price}} {{localize 'ROGUE.Coins.sc'}}</p>
+            </div>
+          </div>
           <div class="item-summary">
             {{{item.system.description}}}
           </div>

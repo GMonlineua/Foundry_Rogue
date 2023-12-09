@@ -47,6 +47,29 @@
       text-shadow: 0 0 8px red;
     }
 
+    .item-characteristics {
+      display: absolute;
+      right: 100px;
+
+      p {
+        display: inline-block;
+        width: 40px;
+        margin: 0.5em;
+      }
+    }
+
+    .item-summary {
+      flex: auto;
+      margin: 0;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.3s ease;
+
+      p {
+        margin: 0.5em;
+      }
+    }
+
     .item-controls {
       position: absolute;
       top: 4px;
@@ -65,9 +88,7 @@
 .spells {
   li.spell.prepared {
     .item-name {
-      h4 {
-        font-weight: bold;
-      }
+      font-weight: bold;
     }
   }
 

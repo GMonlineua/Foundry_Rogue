@@ -99,7 +99,6 @@
     },
     "spell": {
       "templates": ["base"],
-      "level": null,
       "prepared": false,
       "blocked": false
     }

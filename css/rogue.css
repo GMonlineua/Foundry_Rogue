@@ -602,6 +602,25 @@ input.clear-input:focus {
 .rogue .items-list .item .item-name:hover {
   text-shadow: 0 0 8px red;
 }
+.rogue .items-list .item .item-characteristics {
+  display: absolute;
+  right: 100px;
+}
+.rogue .items-list .item .item-characteristics p {
+  display: inline-block;
+  width: 40px;
+  margin: 0.5em;
+}
+.rogue .items-list .item .item-summary {
+  flex: auto;
+  margin: 0;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+.rogue .items-list .item .item-summary p {
+  margin: 0.5em;
+}
 .rogue .items-list .item .item-controls {
   position: absolute;
   top: 4px;
@@ -614,7 +633,7 @@ input.clear-input:focus {
   text-align: center;
   margin: 0 6px;
 }
-.rogue .spells li.spell.prepared .item-name h4 {
+.rogue .spells li.spell.prepared .item-name {
   font-weight: bold;
 }
 .rogue .spells li.spell.blocked .item-name {

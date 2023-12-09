@@ -13,9 +13,11 @@
   </div>
   <ol class="items-list">
     {{#each spell as |item id|}}
-      <li class="item flexrow {{#spellClass system}}{{/spellClass}}" data-item-id="{{item._id}}">
-        <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
-        <h4 class="item-name">{{item.name}}</h4>
+      <li class="item {{item.type}}{{#spellClass system}}{{/spellClass}}" data-item-id="{{item._id}}">
+        <div class="item-info flexrow">
+          <a class="item-image rollable" data-roll-type="item" style="background-image: url({{item.img}})"></a>
+          <h4 class="item-name">{{item.name}}</h4>
+        </div>
         <div class="item-summary">
           {{{item.system.description}}}
         </div>
