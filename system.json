@@ -2,7 +2,7 @@
   "id": "rogue",
   "title": "Rogue",
   "description": "Rogue | Пройдисвіт",
-  "version": "0.5",
+  "version": "0.5.1",
   "compatibility": {
     "minimum": "11",
     "verified": "11",
@@ -36,6 +36,18 @@
     }
   ],
   "packs": [
+    {
+      "label": "Закляття",
+      "type": "Item",
+      "name": "spell",
+      "path": "packs/spell",
+      "system": "rogue",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
     {
       "label": "Предмети",
       "type": "Item",
@@ -73,7 +85,7 @@
       "flags": {}
     }
   ],
-  "initiative": "d6",
+  "initiative": "1d6",
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "hp",

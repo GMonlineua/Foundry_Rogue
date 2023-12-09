@@ -131,9 +131,11 @@ async function restRoll(rollName, sheet, note) {
     rollData.formula = "1d6"
   } else if (note == "Day") {
     rollData.formula = "1d6+@modifier";
-    rollData.modifier = sheet.system.abilities.con.value
+    rollData.modifier = sheet.system.abilities.con.value;
+    sheet.update({ "system.exhaustion": sheet.system.exhaustion - 1 });
   } else {
     sheet.update({ "system.hp.value": sheet.system.hp.max });
+    sheet.update({ "system.exhaustion": 0 });
   }
 
   if (rollData.formula) {
