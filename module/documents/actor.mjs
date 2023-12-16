@@ -60,7 +60,7 @@ export class RogueActor extends Actor {
         used += i.system.slots;
       }
     }
-    used += Math.floor(systemData.sc / 30);
+    used += Math.floor(systemData.sc / 100);
     systemData.slots.used = used + systemData.exhaustion;
     systemData.slots.free = systemData.slots.max - systemData.slots.used;
 
@@ -100,7 +100,6 @@ export class RogueActor extends Actor {
       }
     }
 
-    console.log(prototypeToken);
     return this.updateSource({prototypeToken});
   }
 }

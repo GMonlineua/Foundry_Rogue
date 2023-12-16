@@ -13,32 +13,32 @@
         },
         "abilities": {
           "str": {
-            "value": 0,
+            "value": 1,
             "label": "ROGUE.Str",
             "name": "ROGUE.Strength"
           },
           "dex": {
-            "value": 0,
+            "value": 1,
             "label": "ROGUE.Dex",
             "name": "ROGUE.Dexterity"
           },
           "con": {
-            "value": 0,
+            "value": 1,
             "label": "ROGUE.Con",
             "name": "ROGUE.Constitution"
           },
           "int": {
-            "value": 0,
+            "value": 1,
             "label": "ROGUE.Int",
             "name": "ROGUE.Intelligence"
           },
           "wis": {
-            "value": 0,
+            "value": 1,
             "label": "ROGUE.Wis",
             "name": "ROGUE.Wisdom"
           },
           "cha": {
-            "value": 0,
+            "value": 1,
             "label": "ROGUE.Cha",
             "name": "ROGUE.Charisma"
           }

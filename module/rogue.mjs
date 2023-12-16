@@ -82,7 +82,6 @@ Handlebars.registerHelper("gearWeight", function(slots) {
 });
 
 Handlebars.registerHelper("spellClass", function(data) {
-  console.log(data);
   const conditions = [
     { condition: data.prepared, className: "prepared" },
     { condition: data.blocked, className: "blocked" }

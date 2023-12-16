@@ -237,7 +237,6 @@ export class RogueActorSheet extends ActorSheet
     if (restType) {
       if (restType == "OneHour") {
         const newHP = actor.system.hp.value + 1;
-        console.log(newHP, actor.system.hp.max)
         if (newHP <= actor.system.hp.max) {
           actor.update({ "system.hp.value": newHP });
         }

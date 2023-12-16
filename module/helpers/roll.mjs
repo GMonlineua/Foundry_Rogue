@@ -49,7 +49,7 @@ function toIntData(data) {
 function getTestData(type, sheet, note) {
   const testData = {
     abilityCheck: {
-      rollName: `${game.i18n.localize("ROGUE.AbilityCheck")}: ${game.i18n.localize(note.split(', ')[1])}`,
+      rollName: `${game.i18n.localize("ROGUE.AbilityCheck")}: ${note ? game.i18n.localize(note.split(', ')[1]) : ''}`,
       rollFunction: abilityCheck,
       needDialog: true
     },
@@ -88,6 +88,7 @@ async function abilityCheck(rollName, data, sheet, note) {
     difficulty: 15,
   };
   rollData.modifier += data.modifier;
+  rollData.modifier -= sheet.system.exhaustion;
 
   const advantage = data.advantage;
   if (advantage == "advantage") {
