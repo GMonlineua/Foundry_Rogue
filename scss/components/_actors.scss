@@ -86,6 +86,39 @@
           top: 5px;
         }
       }
+
+      .hd-block {
+        display: none;
+        position: absolute;
+        top: -25px;
+        height: 23px;
+
+        .dice-icon {
+          display: inline-block;
+          position: absolute;
+          left: 3px;
+          top: 3px;
+          height: 20px;
+          width: 20px;
+          background-image: url("/icons/svg/d20-grey.svg");
+          background-size: 20px;
+          background-position: center;
+          background-repeat: no-repeat;
+          transition: .5s ease;
+        }
+
+        .dice-icon:hover {
+          background-image: url("/icons/svg/d20-black.svg");
+        }
+
+        .hd-input {
+          width: 100%;
+          padding-left: 25px;
+          text-align: center;
+          font-size: small;
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+      }
     }
   }
 
@@ -142,6 +175,12 @@
 }
 
 .npc {
+  .hp-bar:hover {
+    .hd-block {
+      display: block;
+    }
+  }
+
   .armor {
     position: absolute;
     top: 0;

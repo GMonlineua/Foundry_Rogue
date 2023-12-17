@@ -65,7 +65,7 @@
     },
     "npc": {
       "templates": ["base"],
-      "hd": "",
+      "hd": "1d8",
       "morale": 5
     }
   },

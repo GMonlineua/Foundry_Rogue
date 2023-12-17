@@ -53,6 +53,11 @@ function getTestData(type, sheet, note) {
       rollFunction: abilityCheck,
       needDialog: true
     },
+    hidDice: {
+      rollName: game.i18n.localize("ROGUE.HP"),
+      rollFunction: hidDice,
+      needDialog: false
+    },
     moraleCheck: {
       rollName: game.i18n.localize("ROGUE.MoraleCheck"),
       rollFunction: moraleCheck,
@@ -76,6 +81,21 @@ function getTestData(type, sheet, note) {
   };
 
   return testData[type];
+}
+
+async function weaponRoll(rollName, data, sheet) {
+  const ability = sheet.system.ability;
+  const rollData = await abilityCheck(rollName, data, sheet.actor, ability);
+  if (rollData.success) {
+    sheet.roll();
+  }
+}
+
+async function spellRoll(rollName, data, sheet) {
+  const rollData = await abilityCheck(rollName, data, sheet.actor, "int");
+  if (rollData.success) {
+    sheet.roll();
+  }
 }
 
 async function abilityCheck(rollName, data, sheet, note) {
@@ -108,6 +128,18 @@ async function abilityCheck(rollName, data, sheet, note) {
   return rollData;
 }
 
+async function hidDice(rollName, sheet) {
+  const rollData = {
+    name: rollName,
+    speaker: ChatMessage.getSpeaker({ actor: sheet }),
+    formula: sheet.system.hd
+  }
+
+  await roll(rollData);
+
+  sheet.update({ "system.hp.value": rollData.result });
+  sheet.update({ "system.hp.max": rollData.result });
+}
 
 function moraleCheck(rollName, sheet) {
   const rollData = {
@@ -165,19 +197,4 @@ async function roll(rollData) {
   });
 
   return rollData
-}
-
-async function weaponRoll(rollName, data, sheet) {
-  const ability = sheet.system.ability;
-  const rollData = await abilityCheck(rollName, data, sheet.actor, ability);
-  if (rollData.success) {
-    sheet.roll();
-  }
-}
-
-async function spellRoll(rollName, data, sheet) {
-  const rollData = await abilityCheck(rollName, data, sheet.actor, "int");
-  if (rollData.success) {
-    sheet.roll();
-  }
 }

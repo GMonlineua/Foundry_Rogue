@@ -348,6 +348,35 @@ input.clear-input:focus {
   position: absolute;
   top: 5px;
 }
+.rogue .sheet-header .img-block .hp-bar .hd-block {
+  display: none;
+  position: absolute;
+  top: -25px;
+  height: 23px;
+}
+.rogue .sheet-header .img-block .hp-bar .hd-block .dice-icon {
+  display: inline-block;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  height: 20px;
+  width: 20px;
+  background-image: url("/icons/svg/d20-grey.svg");
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.5s ease;
+}
+.rogue .sheet-header .img-block .hp-bar .hd-block .dice-icon:hover {
+  background-image: url("/icons/svg/d20-black.svg");
+}
+.rogue .sheet-header .img-block .hp-bar .hd-block .hd-input {
+  width: 100%;
+  padding-left: 25px;
+  text-align: center;
+  font-size: small;
+  background-color: rgba(255, 255, 255, 0.4);
+}
 .rogue .sheet-header .header-fields {
   position: relative;
   flex: 4;
@@ -388,6 +417,9 @@ input.clear-input:focus {
 .rogue .character .level * {
   display: block;
   margin: auto;
+}
+.rogue .npc .hp-bar:hover .hd-block {
+  display: block;
 }
 .rogue .npc .armor {
   position: absolute;

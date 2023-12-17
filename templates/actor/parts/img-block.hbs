@@ -17,8 +17,9 @@
       <span> / </span>
       <input class="clear-input" type="number" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number"/>
     </div>
-    <div class="hd-input">
-      <input class="clear-input" type="number" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number"/>
+    <div class="hd-block" title="{{localize 'ROGUE.HD'}}">
+      <span class="dice-icon rollable" data-roll-type="hidDice"></span>
+      <input class="hd-input" spellcheck="false" type="text" name="system.hd" value="{{system.hd}}" data-dtype="String"/>
     </div>
   </div>
 </div>
