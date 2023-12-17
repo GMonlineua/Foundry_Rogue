@@ -2,9 +2,10 @@
   <header class="items-header">
     <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
-      <h1 class="item-name"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ROGUE.Loot'}}"/></h1>
-      <div class="resources flexrow">
-        {{> "systems/rogue/templates/item/parts/gear.hbs"}}
+      <h1 class="item-name"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'ROGUE.Feature'}}"/></h1>
+      <div class="resource">
+        <label for="system.formula" class="resource-label">{{localize 'ROGUE.Formula'}}:</label>
+        <input type="text" name="system.formula" value="{{system.formula}}" data-dtype="String"/>
       </div>
     </div>
   </header>

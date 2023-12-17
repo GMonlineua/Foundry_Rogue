@@ -76,6 +76,7 @@ export class RogueActorSheet extends ActorSheet
     const protection = [];
     const weapon = [];
     const spell = [];
+    const feature = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -84,17 +85,21 @@ export class RogueActorSheet extends ActorSheet
       if (i.type === 'loot') {
         loot.push(i);
       }
-      // Append to protection bonus.
+      // Append to protection.
       else if (i.type === 'protection') {
         protection.push(i);
       }
-      // Append to weapon bonus.
+      // Append to weapon.
       else if (i.type === 'weapon') {
         weapon.push(i);
       }
-      // Append to spell bonus.
+      // Append to spell.
       else if (i.type === 'spell') {
         spell.push(i);
+      }
+      // Append to feature.
+      else if (i.type === 'feature') {
+        feature.push(i);
       }
     }
 
@@ -103,6 +108,7 @@ export class RogueActorSheet extends ActorSheet
     context.protection = protection;
     context.weapon = weapon;
     context.spell = spell;
+    context.feature = feature;
   }
 
   /* -------------------------------------------- */
@@ -204,15 +210,24 @@ export class RogueActorSheet extends ActorSheet
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
+
         if (item.type == 'weapon' || item.type == 'spell') {
           createRollDialog(item.type, item);
+        } else if (item.type == 'feature') {
+          if (item.system.formula) {
+            createRollDialog(item.type, item);
+          } else {
+            item.show();
+          }
         } else {
-          if (item) return item.roll();
+          if (item) return item.show();
         }
+
       } else if (dataset.rollType == 'show') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) return item.show();
+
       } else {
         createRollDialog(dataset.rollType, this.actor, dataset.rollNote);
       }

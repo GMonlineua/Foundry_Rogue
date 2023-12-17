@@ -45,6 +45,15 @@
 }
 
 .sheet-body {
+  .feature-formula {
+    margin-bottom: 5px;
+
+    .feature-checkbox {
+      position: relative;
+      top: 5px;
+    }
+  }
+
   .editor-block {
     flex: auto;
 

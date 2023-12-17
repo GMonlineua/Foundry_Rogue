@@ -70,7 +70,7 @@
     }
   },
   "Item": {
-    "types": ["loot", "protection", "weapon", "spell"],
+    "types": ["loot", "protection", "weapon", "spell", "feature"],
     "templates": {
       "base": {
         "name": "",
@@ -102,6 +102,10 @@
       "templates": ["base"],
       "prepared": false,
       "blocked": false
+    },
+    "feature": {
+      "templates": ["base"],
+      "formula": ""
     }
   }
 }

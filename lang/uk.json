@@ -8,7 +8,8 @@
       "loot": "Предмет",
       "weapon": "Зброя",
       "protection": "Захист",
-      "spell": "Закляття"
+      "spell": "Закляття",
+      "feature": "Здібність"
     }
   },
 
@@ -106,6 +107,11 @@
     "SpellPrepared": "Підготовлено",
     "SpellBlocked": "Заблоковано",
     "SpellLevel": "Рівень",
+
+    "Feature": "Здібність",
+    "FeaturePlural": "Здібності",
+    "CreateFeature": "Створити Здібність",
+    "Formula": "Формула",
 
     "Experience": "Досвід",
     "KnownLanguages": "Відомі Мови",

@@ -9,6 +9,7 @@
     "systems/rogue/templates/actor/parts/abilities.hbs",
     "systems/rogue/templates/actor/parts/inventory.hbs",
     "systems/rogue/templates/actor/parts/spells.hbs",
+    "systems/rogue/templates/actor/parts/features.hbs",
     "systems/rogue/templates/actor/parts/movement.hbs",
     "systems/rogue/templates/actor/parts/notes.hbs",
 

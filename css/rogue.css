@@ -602,6 +602,13 @@ input.clear-input:focus {
 .rogue .items-header .header-fields .resources.flexrow .resource {
   margin-bottom: 5px;
 }
+.rogue .sheet-body .feature-formula {
+  margin-bottom: 5px;
+}
+.rogue .sheet-body .feature-formula .feature-checkbox {
+  position: relative;
+  top: 5px;
+}
 .rogue .sheet-body .editor-block {
   flex: auto;
 }

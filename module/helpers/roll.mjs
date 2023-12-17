@@ -77,6 +77,11 @@ function getTestData(type, sheet, note) {
       rollName: sheet.name,
       rollFunction: spellRoll,
       needDialog: true
+    },
+    feature: {
+      rollName: sheet.name,
+      rollFunction: featureRoll,
+      needDialog: false
     }
   };
 
@@ -132,13 +137,10 @@ async function hidDice(rollName, sheet) {
   const rollData = {
     name: rollName,
     speaker: ChatMessage.getSpeaker({ actor: sheet }),
-    formula: sheet.system.hd
+    formula: sheet.system.formula
   }
 
   await roll(rollData);
-
-  sheet.update({ "system.hp.value": rollData.result });
-  sheet.update({ "system.hp.max": rollData.result });
 }
 
 function moraleCheck(rollName, sheet) {
@@ -149,6 +151,17 @@ function moraleCheck(rollName, sheet) {
     difficulty: sheet.system.morale
   }
 
+  roll(rollData);
+}
+
+function featureRoll(rollName, sheet) {
+  const rollData = {
+    name: rollName,
+    speaker: ChatMessage.getSpeaker({ actor: sheet }),
+    formula: sheet.system.formula
+  }
+
+  sheet.roll();
   roll(rollData);
 }
 

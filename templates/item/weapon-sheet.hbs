@@ -15,25 +15,30 @@
             {{/select}}
           </select>
         </div>
-        <div class="resource damage">
-          <label for="system.damage" class="resource-label">{{localize 'ROGUE.DamageDice'}}:</label>
-          <select name="system.damage">
-            {{#select system.damage}}
-              <option value="1d4">{{localize 'ROGUE.Dice.d4'}}</option>
-              <option value="1d6">{{localize 'ROGUE.Dice.d6'}}</option>
-              <option value="1d8">{{localize 'ROGUE.Dice.d8'}}</option>
-              <option value="1d10">{{localize 'ROGUE.Dice.d10'}}</option>
-              <option value="1d12">{{localize 'ROGUE.Dice.d12'}}</option>
-            {{/select}}
-          </select>
-        </div>
+        {{#unless system.formula}}
+          <div class="resource damage">
+            <label for="system.damage" class="resource-label">{{localize 'ROGUE.DamageDice'}}:</label>
+            <select name="system.damage">
+              {{#select system.damage}}
+                <option value="1d4">{{localize 'ROGUE.Dice.d4'}}</option>
+                <option value="1d6">{{localize 'ROGUE.Dice.d6'}}</option>
+                <option value="1d8">{{localize 'ROGUE.Dice.d8'}}</option>
+                <option value="1d10">{{localize 'ROGUE.Dice.d10'}}</option>
+                <option value="1d12">{{localize 'ROGUE.Dice.d12'}}</option>
+              {{/select}}
+            </select>
+          </div>
+        {{/unless}}
         <div class="resource ability">
           <label for="system.ability" class="resource-label">{{localize 'ROGUE.Ability'}}:</label>
           <select name="system.ability">
             {{#select system.ability}}
-              {{#each item.actor.system.abilities as |ability key|}}
-                <option value="{{key}}">{{localize ability.name}}</option>
-              {{/each}}
+              <option value="str">{{localize 'ROGUE.Strength'}}</option>
+              <option value="dex">{{localize 'ROGUE.Dexterity'}}</option>
+              <option value="con">{{localize 'ROGUE.Constitution'}}</option>
+              <option value="int">{{localize 'ROGUE.Intelligence'}}</option>
+              <option value="wis">{{localize 'ROGUE.Wisdom'}}</option>
+              <option value="cha">{{localize 'ROGUE.Charisma'}}</option>
             {{/select}}
           </select>
         </div>
@@ -43,9 +48,16 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
+    <hr>
     {{!-- Description Tab --}}
+    <div class="resource feature-formula">
+      <input class="feature-checkbox" type="checkbox" name="system.formula" data-dtype="Boolean" {{#if system.formula}} checked {{/if}}/>
+      <label for="system.damage" class="resource-label">{{localize 'ROGUE.Formula'}}:</label>
+      {{#if system.formula}}
+        <input type="text" name="system.damage" value="{{system.damage}}" data-dtype="String"/>
+      {{/if}}
+    </div>
     <div class="tab">
-      <hr>
       {{editor enrichedDescription target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
   </section>
