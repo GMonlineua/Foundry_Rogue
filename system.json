@@ -83,6 +83,30 @@
         "ASSISTANT": "OWNER"
       },
       "flags": {}
+    },
+    {
+      "label": "Макроси",
+      "type": "Macro",
+      "name": "macros",
+      "path": "packs/macros",
+      "system": "rogue",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "label": "Таблиці",
+      "type": "RollTable",
+      "name": "tables",
+      "path": "packs/tables",
+      "system": "rogue",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     }
   ],
   "initiative": "1d6",
